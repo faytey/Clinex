@@ -2,17 +2,17 @@
 mod tests {
     use core::traits::TryInto;
     use snforge_std::{declare, ContractClassTrait, start_prank, stop_prank};
-    use token_stake::stake_token::{IStakeTokenDispatcher, IStakeTokenDispatcherTrait};
+    use clinex::clinex_token::{ITokenDispatcher, ITokenDispatcherTrait};
     use array::ArrayTrait;
     use starknet::{ContractAddress,get_caller_address};
 
     // #[test]
     fn setup() -> ContractAddress {
         // First declare and deploy a contract
-        let contract = declare('StakeToken');
+        let contract = declare('BuyToken');
         // Initialize Constructor
         let mut deploy = ArrayTrait::new();
-          let contract_address = contract.precalculate_address(@deploy);
+        let contract_address = contract.precalculate_address(@deploy);
         let owner: ContractAddress = 0x03af13f04C618e7824b80b61e141F5b7aeDB07F5CCe3aD16Dbd8A4BE333A3Ffa.try_into().unwrap();
         start_prank(contract_address, owner);
         let deployed = contract.deploy(@deploy).unwrap();
@@ -24,29 +24,29 @@ mod tests {
     fn test_name() {
         let contract_address = setup();
         // Create a Dispatcher object that will allow interacting with the deployed contract
-        let dispatcher = IStakeTokenDispatcher { contract_address };
+        let dispatcher = ITokenDispatcher { contract_address };
 
         // Call a view function of the contract
         let name = dispatcher.get_name();
-        assert(name == 'StakeToken', 'Incorrect Name');
+        assert(name == 'ClinexToken', 'Incorrect Name');
     }
 
     #[test]
     fn test_symbol() {
         let contract_address = setup();
         // Create a Dispatcher object that will allow interacting with the deployed contract
-        let dispatcher = IStakeTokenDispatcher { contract_address };
+        let dispatcher = ITokenDispatcher { contract_address };
 
         // Call a view function of the contract
         let symbol = dispatcher.get_symbol();
-        assert(symbol == 'STK', 'Incorrect Symbol');
+        assert(symbol == 'CTK', 'Incorrect Symbol');
     }
 
     #[test]
     fn test_decimal() {
         let contract_address = setup();
         // Create a Dispatcher object that will allow interacting with the deployed contract
-        let dispatcher = IStakeTokenDispatcher { contract_address };
+        let dispatcher = ITokenDispatcher { contract_address };
 
         // Call a view function of the contract
         let decimal = dispatcher.get_decimal();
@@ -58,7 +58,7 @@ mod tests {
         let owner: ContractAddress = 0x03af13f04C618e7824b80b61e141F5b7aeDB07F5CCe3aD16Dbd8A4BE333A3Ffa.try_into().unwrap();
         let contract_address = setup();
         // Create a Dispatcher object that will allow interacting with the deployed contract
-        let dispatcher = IStakeTokenDispatcher { contract_address };
+        let dispatcher = ITokenDispatcher { contract_address };
 
         // Call a view function of the contract
         let get_owner = dispatcher.get_owner();
@@ -69,7 +69,7 @@ mod tests {
     fn test_balance() {
         let contract_address = setup();
         // Create a Dispatcher object that will allow interacting with the deployed contract
-        let dispatcher = IStakeTokenDispatcher { contract_address };
+        let dispatcher = ITokenDispatcher { contract_address };
 
         // Call a view function of the contract
         let user = get_caller_address();
@@ -78,10 +78,11 @@ mod tests {
     }
 
      #[test]
+
     fn test_supply() {
         let contract_address = setup();
         // Create a Dispatcher object that will allow interacting with the deployed contract
-        let dispatcher = IStakeTokenDispatcher { contract_address };
+        let dispatcher = ITokenDispatcher { contract_address };
 
         // Call a view function of the contract
         let supply = dispatcher.get_total_supply();
@@ -92,7 +93,7 @@ mod tests {
     fn test_mint() {
         let contract_address = setup();
         // Create a Dispatcher object that will allow interacting with the deployed contract
-        let dispatcher = IStakeTokenDispatcher { contract_address };
+        let dispatcher = ITokenDispatcher { contract_address };
 
         // Call a view function of the contract
         let user: ContractAddress = 0x03af13f04C618e7824b80b61e141F5b7aeDB07F5CCe3aD16Dbd8A4BE333A3Ffa.try_into().unwrap();
@@ -108,7 +109,7 @@ mod tests {
     fn test_transfer() {
         let contract_address = setup();
         // Create a Dispatcher object that will allow interacting with the deployed contract
-        let dispatcher = IStakeTokenDispatcher { contract_address };
+        let dispatcher = ITokenDispatcher { contract_address };
 
         // Call a view function of the contract
         let user: ContractAddress = 0x03af13f04C618e7824b80b61e141F5b7aeDB07F5CCe3aD16Dbd8A4BE333A3Ffa.try_into().unwrap();
@@ -127,7 +128,7 @@ mod tests {
     fn test_approval() {
         let contract_address = setup();
         // Create a Dispatcher object that will allow interacting with the deployed contract
-        let dispatcher = IStakeTokenDispatcher { contract_address };
+        let dispatcher = ITokenDispatcher { contract_address };
 
         // Call a view function of the contract
         let user: ContractAddress = 0x03af13f04C618e7824b80b61e141F5b7aeDB07F5CCe3aD16Dbd8A4BE333A3Ffa.try_into().unwrap();
@@ -142,7 +143,7 @@ mod tests {
     fn test_allowance() {
         let contract_address = setup();
         // Create a Dispatcher object that will allow interacting with the deployed contract
-        let dispatcher = IStakeTokenDispatcher { contract_address };
+        let dispatcher = ITokenDispatcher { contract_address };
 
         // Call a view function of the contract
         let user: ContractAddress = 0x03af13f04C618e7824b80b61e141F5b7aeDB07F5CCe3aD16Dbd8A4BE333A3Ffa.try_into().unwrap();
@@ -157,7 +158,7 @@ mod tests {
     // fn test_transfer_from() {
     //     let contract_address = setup();
     //     // Create a Dispatcher object that will allow interacting with the deployed contract
-    //     let dispatcher = IStakeTokenDispatcher { contract_address };
+    //     let dispatcher = ITokenDispatcher { contract_address };
 
     //     // Call a view function of the contract
     //     let user: ContractAddress = 0x03af13f04C618e7824b80b61e141F5b7aeDB07F5CCe3aD16Dbd8A4BE333A3Ffa.try_into().unwrap();
@@ -178,7 +179,8 @@ mod tests {
     fn test_withdraw_tokens() {
         let contract_address = setup();
         // Create a Dispatcher object that will allow interacting with the deployed contract
-        let dispatcher = IStakeTokenDispatcher { contract_address };
+        let dispatcher = ITokenDispatcher { contract_address 
+};
 
         // Call a view function of the contract
         let user: ContractAddress = 0x03af13f04C618e7824b80b61e141F5b7aeDB07F5CCe3aD16Dbd8A4BE333A3Ffa.try_into().unwrap();

@@ -1,7 +1,7 @@
 use starknet::ContractAddress;
 
 #[starknet::interface]
-trait IStakeToken<TContractState> {
+trait IToken<TContractState> {
     fn mint(ref self: TContractState, address: ContractAddress );
     fn transfer(ref self: TContractState, address: ContractAddress, amount: u128 );
     fn approval(ref self: TContractState, from: ContractAddress, to: ContractAddress, amount: u128 );
@@ -18,7 +18,7 @@ trait IStakeToken<TContractState> {
 
 #[starknet::contract]
 
-mod StakeToken {
+mod BuyToken {
 use starknet::{ContractAddress, get_caller_address, get_contract_address};
 
     #[storage]
@@ -34,8 +34,8 @@ use starknet::{ContractAddress, get_caller_address, get_contract_address};
 
     #[constructor]
     fn constructor(ref self: ContractState) {
-        self.name.write('StakeToken');
-        self.symbol.write('STK');
+        self.name.write('ClinexToken');
+        self.symbol.write('CTK');
         self.decimal.write(18);
         self.owner.write(get_caller_address());
     }
@@ -70,6 +70,7 @@ use starknet::{ContractAddress, get_caller_address, get_contract_address};
         #[key]
         to: ContractAddress,
         amount: u128
+
     }
 
      #[derive(Drop, starknet::Event)]
@@ -89,7 +90,7 @@ use starknet::{ContractAddress, get_caller_address, get_contract_address};
     }
 
     #[external(v0)]
-    impl IStakeTokenImpl of token_stake::stake_token::IStakeToken<ContractState>{
+    impl ITokenImpl of clinex::clinex_token::IToken<ContractState>{
         fn mint(ref self: ContractState, address: ContractAddress ) {
             let caller: ContractAddress = get_caller_address();
             assert(!caller.is_zero(), 'Caller cannot be address zero');
