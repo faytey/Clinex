@@ -4,7 +4,7 @@ use starknet::ContractAddress;
 trait IToken<TContractState> {
     fn mint(ref self: TContractState, address: ContractAddress );
     fn transfer(ref self: TContractState, address: ContractAddress, amount: u128 );
-    fn approval(ref self: TContractState, from: ContractAddress, to: ContractAddress, amount: u128 );
+    fn approval(ref self: TContractState, to: ContractAddress, amount: u128 );
     fn allowance(self: @TContractState, from: ContractAddress, to: ContractAddress ) -> u128;
     fn transfer_from(ref self: TContractState, from: ContractAddress, to: ContractAddress, amount: u128 );
     fn withdrawTokens(ref self: TContractState, contract_address: ContractAddress, amount: u128);
@@ -18,7 +18,7 @@ trait IToken<TContractState> {
 
 #[starknet::contract]
 
-mod BuyToken {
+mod ClinexToken {
 use starknet::{ContractAddress, get_caller_address, get_contract_address};
 
     #[storage]
@@ -108,7 +108,9 @@ use starknet::{ContractAddress, get_caller_address, get_contract_address};
             self.balance_of.write(address, reciever_balance + amount);
             self.emit(Transfer {to: address, amount: amount});
         }
-        fn approval(ref self: ContractState, from: ContractAddress, to: ContractAddress, amount: u128 ) {
+        fn approval(ref self: ContractState, to: ContractAddress, amount: u128 ) {
+            let from: ContractAddress = get_caller_address();
+            assert(self.owner.read() == from, 'Not Owner');
             self.allowance.write((from,to), self.allowance.read((from, to)) + amount);
             self.emit(Approval {user: from, to: to, amount: amount});
         }
@@ -116,8 +118,8 @@ use starknet::{ContractAddress, get_caller_address, get_contract_address};
             self.allowance.read((from, to))
         }
         fn transfer_from(ref self: ContractState, from: ContractAddress, to: ContractAddress, amount: u128 ) {
-            assert(self.allowance.read((from, to)) >= amount, 'Insufficient Allowance');
-            self.allowance.write((from, to), self.allowance.read((from, to)) - amount);
+            assert(self.allowance.read((from, get_caller_address())) >= amount, 'Insufficient Allowance');
+            self.allowance.write((from, get_caller_address()), self.allowance.read((from, get_caller_address())) - amount);
             assert(self.balance_of.read(from) >= amount, 'Not Enough Tokens');
             self.balance_of.write(from, self.balance_of.read(from) - amount);
             self.balance_of.write(to, self.balance_of.read(to) + amount);

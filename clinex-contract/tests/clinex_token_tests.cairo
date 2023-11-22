@@ -1,6 +1,7 @@
 #[cfg(test)]
 mod tests {
-    use core::traits::TryInto;
+    use core::option::OptionTrait;
+use core::traits::TryInto;
     use snforge_std::{declare, ContractClassTrait, start_prank, stop_prank};
     use clinex::clinex_token::{ITokenDispatcher, ITokenDispatcherTrait};
     use array::ArrayTrait;
@@ -9,13 +10,14 @@ mod tests {
     // #[test]
     fn setup() -> ContractAddress {
         // First declare and deploy a contract
-        let contract = declare('BuyToken');
+        let contract = declare('ClinexToken');
         // Initialize Constructor
         let mut deploy = ArrayTrait::new();
         let contract_address = contract.precalculate_address(@deploy);
         let owner: ContractAddress = 0x03af13f04C618e7824b80b61e141F5b7aeDB07F5CCe3aD16Dbd8A4BE333A3Ffa.try_into().unwrap();
         start_prank(contract_address, owner);
         let deployed = contract.deploy(@deploy).unwrap();
+        deployed;
         stop_prank(contract_address);
         deployed
     }
@@ -134,7 +136,7 @@ mod tests {
         let user: ContractAddress = 0x03af13f04C618e7824b80b61e141F5b7aeDB07F5CCe3aD16Dbd8A4BE333A3Ffa.try_into().unwrap();
         let receiver: ContractAddress = 0x01538745212ff736a6F71B389Fd4F9710A4142F1986f37dA95E53CC213606014.try_into().unwrap();
         start_prank(contract_address, user);
-        dispatcher.approval(user, receiver, 1000);
+        dispatcher.approval(receiver, 1000);
         assert(dispatcher.allowance(user, receiver) != 0, 'allowance is 0');
         stop_prank(contract_address)
     }
@@ -154,26 +156,26 @@ mod tests {
         stop_prank(contract_address)
     }
 
-    // #[test]
-    // fn test_transfer_from() {
-    //     let contract_address = setup();
-    //     // Create a Dispatcher object that will allow interacting with the deployed contract
-    //     let dispatcher = ITokenDispatcher { contract_address };
+    #[test]
+    fn test_transfer_from() {
+        let contract_address = setup();
+        // Create a Dispatcher object that will allow interacting with the deployed contract
+        let dispatcher = ITokenDispatcher { contract_address };
 
-    //     // Call a view function of the contract
-    //     let user: ContractAddress = 0x03af13f04C618e7824b80b61e141F5b7aeDB07F5CCe3aD16Dbd8A4BE333A3Ffa.try_into().unwrap();
-    //     let receiver: ContractAddress = 0x01538745212ff736a6F71B389Fd4F9710A4142F1986f37dA95E53CC213606014.try_into().unwrap();
-    //     start_prank(contract_address, user);
-    //     dispatcher.mint(user);
-    //     assert(dispatcher.get_balance_of_user(user) != 0, 'balance is 0');
-    //     assert(dispatcher.get_total_supply() == dispatcher.get_balance_of_user(user), 'supply == 0');
-    //     dispatcher.approval(user, contract_address, 100);
-    //     assert(dispatcher.allowance(user, contract_address) != 0, 'allowance is 0');
-    //     let transfer_from = dispatcher.transfer_from(user, receiver, 10);
-    //     assert(dispatcher.get_balance_of_user(user) != 1000, 'balance is 1000');
-    //     assert(dispatcher.get_balance_of_user(receiver) != 0, 'rec_balance == 0');
-    //     stop_prank(contract_address)
-    // }
+        // Call a view function of the contract
+        let user: ContractAddress = 0x03af13f04C618e7824b80b61e141F5b7aeDB07F5CCe3aD16Dbd8A4BE333A3Ffa.try_into().unwrap();
+        let receiver: ContractAddress = 0x01538745212ff736a6F71B389Fd4F9710A4142F1986f37dA95E53CC213606014.try_into().unwrap();
+        start_prank(contract_address, user);
+        dispatcher.mint(user);
+        assert(dispatcher.get_balance_of_user(user) != 0, 'balance is 0');
+        assert(dispatcher.get_total_supply() == dispatcher.get_balance_of_user(user), 'supply == 0');
+        dispatcher.approval(contract_address.try_into().unwrap(), 100);
+        assert(dispatcher.allowance(user, contract_address.try_into().unwrap()) != 0, 'allowance is 0');
+        let transfer_from = dispatcher.transfer_from(user, receiver, 10);
+        assert(dispatcher.get_balance_of_user(user) != 1000, 'balance is 1000');
+        assert(dispatcher.get_balance_of_user(receiver) != 0, 'rec_balance == 0');
+        stop_prank(contract_address)
+    }
 
     #[test]
     fn test_withdraw_tokens() {
