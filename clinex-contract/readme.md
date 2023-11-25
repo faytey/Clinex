@@ -132,6 +132,8 @@ Contributions are welcome! Please follow the [CONTRIBUTING.md](CONTRIBUTING.md) 
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
+
+
 # Clinex DAO Smart Contract
 
 ## Overview
@@ -247,4 +249,3 @@ const members = dao.member_list();
 This Clinex DAO smart contract is licensed under the [Your License] License.
 ```
 
-Feel free to replace `[Your Name]`, `[Contributor 1]`, `[Contributor 2]`, and `[Your License]` with the actual information relevant to your project.
