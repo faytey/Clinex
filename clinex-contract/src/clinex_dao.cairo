@@ -16,7 +16,7 @@ trait IDAO<TContractState> {
 #[starknet::contract]
 mod ClinexDao {
     use clinex::clinex_token::{get_balance_of_user, transfer};
-    use starknet::{get_caller_address, get_contract_address};
+    use starknet::{get_caller_address, get_contract_address, get_block_timestamp};
 
     #[storage]
     struct Storage {
@@ -26,7 +26,7 @@ mod ClinexDao {
         member_list: ArrayTrait::new,
         is_member: LegacyMap::<ContractAddress,bool>,
         rejected_proposals: ArrayTrait::new,
-        is_voted: LegacyMap::<Proposal, bool>,
+        is_voted: LegacyMap::<(Proposal, get_caller_address), bool>,
         member_id: u128
     }
 
@@ -47,12 +47,12 @@ mod ClinexDao {
             transfer(get_contract_address, 1000);
             self.member_list.append(get_caller_address());
             self.is_member.write(true);
-            self.member_count.write(self.members_count.read() + 1);
+            self.members_count.write(self.members_count.read() + 1);
             self.member_id.write(self.members_count.read());
             
         }
         fn access(self: @TContractState) -> bool{
-            assert(self.is_member.read() == true, 'Not a member');
+            assert(self.is_member.read(get_caller_address()) == true, 'Not a member');
         }
         fn member_list(self: @ContractState) -> ArrayTrait {
             self.access();
@@ -66,7 +66,6 @@ mod ClinexDao {
             self.access();
             let new_proposal = Proposal {
                 proposal_id: proposal_id + 1, 
-                vote_count: vote_count + 1, 
                 name: title, 
                 description: desc, 
                 deadline: deadline, 
@@ -78,10 +77,22 @@ mod ClinexDao {
         }
         fn vote(ref self: ContractState, proposal_id: u128) -> bool {
             self.access();
+            let proposal = Proposal {
+                proposal_id: proposal_id,
+            };
+            assert(proposal.is_proposed == true, 'Proposal does not exist' );
+            proposal.vote_count + 1;
+            self.is_voted.write((proposal, get_caller_address()), true)
 
         }
         fn execute_proposal(ref self: ContractState, proposal_id: u128) -> bool {
             self.access();
+            let proposal = Proposal;
+            assert(proposal.is_proposed == true, 'Not exist');
+            assert(proposal.deadline <= get_block_timestamp(), 'Not deadline');
+            if (proposal.vote_count == 0 || proposal.vote_count < self.members_count / 3) {
+                self.rejected_proposals.append(proposal)
+            }
 
         }
         fn rejected_proposals(self: @ContractState) -> ArrayTrait {
