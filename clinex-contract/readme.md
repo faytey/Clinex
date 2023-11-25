@@ -242,7 +242,7 @@ const members = dao.member_list();
 
 - [Jerydam](https://github.com/jerydam)
 - [Faytey7](https://github.com/faytey)
-- [MrPatrick](https://github.com/)
+- [MrPatrick](https://github.com/Mrpatrick030)
 
 ## License
 
