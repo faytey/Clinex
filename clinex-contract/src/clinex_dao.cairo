@@ -17,17 +17,20 @@ trait IDAO<TContractState> {
 mod ClinexDao {
     use clinex::clinex_token::{get_balance_of_user, transfer};
     use starknet::{get_caller_address, get_contract_address, get_block_timestamp};
+    use super::ITokenDispatcher;
+    use super::ITokenDispatcherTrait;
 
     #[storage]
     struct Storage {
-        proposals: ArrayTrait::new,
+        proposals: usize,
         proposal_count: u128,
         members_count: u128,
-        member_list: ArrayTrait::new,
+        member_list: usize,
         is_member: LegacyMap::<ContractAddress,bool>,
-        rejected_proposals: ArrayTrait::new,
+        rejected_proposals: usize,
         is_voted: LegacyMap::<(Proposal, get_caller_address), bool>,
-        member_id: u128
+        member_id: u128,
+        token: ContractAddress
     }
 
     struct Proposal {
@@ -39,11 +42,18 @@ mod ClinexDao {
         is_proposed: bool,
     }
 
+    #[constructor]
+    fn constructor(ref self: ContractState) {
+        let token: ContractAddress = 0x01cb296d5ae3f94e244b4332b99033fb22987d9e46252414f905fece3032b23f.try_into().unwrap();
+        self.token.write(token);
+    }
+
     #[external(v0)]
     impl IDaoImpl of clinex::clinex_dao::IDAO<ContractState>{
         fn join_dao(ref self: ContractState ) -> u128 {
+            // let token = ITokenDispatcher {self.token.read()};
             assert(self.is_member.read(get_caller_address()) == false, 'Already a Member');
-            assert(get_balance_of_user(get_caller_address()) >= 1000, 'Insufficient Tokens');
+            assert(ITokenDispatcher {self.token.read()}.get_balance_of_user(get_caller_address()) >= 1000, 'Insufficient Tokens');
             transfer(get_contract_address, 1000);
             self.member_list.append(get_caller_address());
             self.is_member.write(true);
@@ -54,7 +64,7 @@ mod ClinexDao {
         fn access(self: @TContractState) -> bool{
             assert(self.is_member.read(get_caller_address()) == true, 'Not a member');
         }
-        fn member_list(self: @ContractState) -> ArrayTrait {
+        fn member_list(self: @ContractStatre) -> ArrayTrait {
             self.access();
             self.member_list.read()   
         }

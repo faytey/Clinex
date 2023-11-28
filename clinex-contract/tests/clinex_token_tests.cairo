@@ -1,10 +1,10 @@
 #[cfg(test)]
 mod tests {
     use core::option::OptionTrait;
-use core::traits::TryInto;
+    use core::traits::TryInto;
     use snforge_std::{declare, ContractClassTrait, start_prank, stop_prank};
     use clinex::clinex_token::{ITokenDispatcher, ITokenDispatcherTrait};
-    use array::ArrayTrait;
+    use core::array::ArrayTrait;
     use starknet::{ContractAddress,get_caller_address};
 
     // #[test]
