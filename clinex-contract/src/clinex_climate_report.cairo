@@ -2,19 +2,14 @@ use starknet::ContractAddress;
 
 #[derive(Copy, Drop, Serde, starknet::Store)]
 struct Report {
-    title: felt252, 
-    description: felt252, 
-    temperature: u128, 
-    min_temperature: u128, 
-    pressure: u128, 
-    humidity: u128, 
-    sea_level: u128, 
-    visibility: u128, 
-    speed: u128, 
-    degree: u128, 
-    country: felt252, 
+    location: felt252, 
     longitude: u128, 
     latitude: u128,
+    temperature: u128, 
+    humidity: u128, 
+    weather: felt252, 
+    pressure: u128, 
+    wind_speed: u128, 
     index: u128,
 }
 
@@ -22,7 +17,7 @@ struct Report {
 trait IReport<TContractState> {
     fn get_climate_reports(self: @TContractState) -> Array<Report>;
     fn get_climate_report(self: @TContractState, index: u128) -> Report;
-    fn create_climate_report(ref self: TContractState, title: felt252, description: felt252, temperature: u128, min_temperature: u128, pressure: u128, humidity: u128, sea_level: u128, visibility: u128, speed: u128, degree: u128, country: felt252, longitude: u128, latitude: u128) -> u128;
+    fn create_climate_report(ref self: TContractState, weather: felt252, temperature: u128, pressure: u128, humidity: u128, wind_speed: u128, location: felt252, longitude: u128, latitude: u128) -> u128;
 }
 
 #[starknet::contract]
@@ -75,20 +70,15 @@ mod ClinexClimate {
             self.reports.read(index)
         }
     
-        fn create_climate_report(ref self: ContractState, title: felt252, description: felt252, temperature: u128, min_temperature: u128, pressure: u128, humidity: u128, sea_level: u128, visibility: u128, speed: u128, degree: u128, country: felt252, longitude: u128, latitude: u128) -> u128 {
+        fn create_climate_report(ref self: ContractState, weather: felt252, temperature: u128, pressure: u128, humidity: u128, wind_speed: u128, location: felt252, longitude: u128, latitude: u128) -> u128 {
             let index = self.report_count.read() + 1;
             let report = Report {
-                title,
-                description,
+                weather,
                 temperature,
-                min_temperature,
                 pressure,
                 humidity,
-                sea_level,
-                visibility,
-                speed,
-                degree,
-                country,
+                wind_speed,
+                location,
                 longitude,
                 latitude,
                 index,

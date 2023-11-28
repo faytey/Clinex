@@ -1,5 +1,25 @@
-use starknet::ContractAddress; 
-use array::ArrayTrait;
+    use starknet::ContractAddress; 
+    use array::ArrayTrait;
+
+    #[derive(Drop, starknet::Store)]
+    struct Proposal {
+        proposal_id: u128,
+        vote_count: u128,
+        name: felt252,
+        description: felt252,
+        deadline: u256,
+        is_proposed: bool,
+    }
+
+    #[derive(Drop, starknet::Store)]
+    struct Member {
+        proposal_id: u128,
+        vote_count: u128,
+        name: felt252,
+        description: felt252,
+        deadline: u256,
+        is_proposed: bool,
+    }
 
 #[starknet::interface]
 trait IDAO<TContractState> {
@@ -17,8 +37,7 @@ trait IDAO<TContractState> {
 mod ClinexDao {
     use clinex::clinex_token::{get_balance_of_user, transfer};
     use starknet::{get_caller_address, get_contract_address, get_block_timestamp};
-    use super::ITokenDispatcher;
-    use super::ITokenDispatcherTrait;
+    use super::{ITokenDispatcher, ITokenDispatcherTrait};
 
     #[storage]
     struct Storage {
@@ -31,15 +50,6 @@ mod ClinexDao {
         is_voted: LegacyMap::<(Proposal, get_caller_address), bool>,
         member_id: u128,
         token: ContractAddress
-    }
-
-    struct Proposal {
-        proposal_id: u128,
-        vote_count: u128,
-        name: felt252,
-        description: felt252,
-        deadline: u256,
-        is_proposed: bool,
     }
 
     #[constructor]
@@ -95,7 +105,7 @@ mod ClinexDao {
             self.is_voted.write((proposal, get_caller_address()), true)
 
         }
-        fn execute_proposal(ref self: ContractState, proposal_id: u128) -> bool {
+        fn execute_propostl(ref self: ContractState, proposal_id: u128) -> bool {
             self.access();
             let proposal = Proposal;
             assert(proposal.is_proposed == true, 'Not exist');

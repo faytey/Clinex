@@ -30,7 +30,7 @@ mod tests {
 
         // Call a view function of the contract
         let add_report = dispatcher.create_climate_report(
-            'Clouds', 'Cloudy Weather', 1, 2, 3, 4, 5, 6, 7, 8, 'Nigeria', 10, 11
+            'Cloudy Weather', 1, 2, 3, 4, 'Nigeria', 10, 11
         );
         assert(add_report == 1, 'Incorrect report');
         assert(dispatcher.get_climate_reports().len() == 1, 'Incorrect');
