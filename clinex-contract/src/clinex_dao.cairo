@@ -7,6 +7,7 @@
         name: felt252,
         description: felt252,
         deadline: u256,
+        proposer: ContractAddress
     }
 
     #[derive(Drop, starknet::Store)]
@@ -19,32 +20,28 @@
 trait IDAO<TContractState> {
     fn join_dao(ref self: TContractState ) -> u128;
     fn access(self: @TContractState) -> bool;
-    fn member_list(self: @TContractState) -> ArrayTrait;
-    fn view_proposals(self: @TContractState) -> ArrayTrait;
+    fn member_list(self: @TContractState) -> Array<Member>;
+    fn view_proposals(self: @TContractState) -> Array<Proposal>;
     fn create_proposal(ref self: TContractState) -> u128;
     fn vote(ref self: TContractState, proposal_id: u128) -> bool;
-    fn execute_proposal(ref self: TContractState, proposal_id: u128) -> bool;
-    fn rejected_proposals(self: @TContractState) -> ArrayTrait;
 }
 
 #[starknet::contract]
 mod ClinexDao {
     use clinex::clinex_token::{ITokenDispatcher, ITokenDispatcherTrait, get_balance_of_user, transfer};
     use starknet::{get_caller_address, get_contract_address, get_block_timestamp};
-    use super::{Member, IDAO};
+    use super::{Member, IDAO, Proposal};
 
     #[storage]
     struct Storage {
-        proposals: usize,
+        proposals: LegacyMap::<u128,Proposal>,
         proposal_count: u128,
         members_count: u128,
-        vote_count: LegacyMap::<(u128, Proposal), u128>,
-        is_proposed: LegacyMap::<(u128, Proposal), bool>,
+        vote_count: LegacyMap::<u128, u128>,
+        is_proposed: LegacyMap::<u128, bool>,
         member_list: LegacyMap::<u128,Member>,
         is_member: LegacyMap::<ContractAddress,bool>,
-        rejected_proposals: usize,
         is_voted: LegacyMap::<(Proposal, get_caller_address), bool>,
-        token: ContractAddress
     }
 
     #[external(v0)]
@@ -59,9 +56,9 @@ mod ClinexDao {
                 member_id: id,
                 member_address: get_caller_address(),
             };
-            self.member_list.append(id, member);
+            self.member_list.write(id, member);
             self.is_member.write(member.member_address, true);
-            self.members_count.write(self.members_count.read() + 1);
+            self.members_count.write(id);
             member.member_id
         }
 
@@ -89,50 +86,52 @@ mod ClinexDao {
             members
         }
 
-        fn view_proposals(self: @ContractState) -> ArrayTrait {
+        fn view_proposals(self: @ContractState) -> Array<Proposal> {
             self.access();
-            self.proposals.read()
+            let proposals = Array::<Proposal>::new();
+            let proposal_count = self.proposal_count.read();
+            let counter = 1;
+
+            if proposal_count > 0 {
+                loop {
+                    let proposal = self.proposals.read(counter);
+                    proposals.append(proposal);
+                    counter += 1
+
+                    if counter > proposal_count {
+                        break;
+                    }
+                }
+            }
+            proposal
         }
 
         fn create_proposal(ref self: ContractState, title: felt252, desc: felt252, deadline: u128) -> u128 {
             self.access();
+            let id = self.proposal_count.read() + 1;
+            
             let new_proposal = Proposal {
-                proposal_id: proposal_id + 1, 
+                proposal_id: id, 
                 name: title, 
                 description: desc, 
                 deadline: deadline, 
-                is_proposed: true
+                proposer: get_caller_address()
             };
-            self.proposals.append(new_proposal);
-            self.proposal_count.write(self.proposal_count.read() + 1);
+
+            self.proposals.write(id, new_proposal);
+            self.proposal_count.write(id);
+            self.is_proposed.write(new_proposal.proposal_id, true);
             new_proposal.proposal_id
         }
 
         fn vote(ref self: ContractState, proposal_id: u128) -> bool {
             self.access();
-            let proposal = Proposal {
-                proposal_id: proposal_id,
-            };
-            assert(proposal.is_proposed == true, 'Proposal does not exist' );
-            proposal.vote_count + 1;
-            self.is_voted.write((proposal, get_caller_address()), true)
-
-        }
-
-        fn execute_propostl(ref self: ContractState, proposal_id: u128) -> bool {
-            self.access();
-            let proposal = Proposal;
-            assert(proposal.is_proposed == true, 'Not exist');
-            assert(proposal.deadline <= get_block_timestamp(), 'Not deadline');
-            if (proposal.vote_count == 0 || proposal.vote_count < self.members_count / 3) {
-                self.rejected_proposals.append(proposal)
-            }
-
-        }
-
-        fn rejected_proposals(self: @ContractState) -> ArrayTrait {
-            self.access();
-            self.rejected_proposals.read()
+            assert(self.is_proposed.read(proposal_id) == true, 'Proposal does not exist' );
+            assert(self.is_voted.read(self.proposals.read(proposal_id), get_caller_address()) == false, 'Already Voted');
+            let votes = self.vote_count.read(proposal_id) + 1;
+            self.vote_count.write(proposal_id, votes);
+            self.is_voted.write((self.proposals.read(proposal_id), get_caller_address()), true);
+            self.is_voted.read(self.proposals.read(proposal_id), get_caller_address());
         }
     }
 }
