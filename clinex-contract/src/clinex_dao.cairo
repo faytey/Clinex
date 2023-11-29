@@ -4,21 +4,15 @@
     #[derive(Drop, starknet::Store)]
     struct Proposal {
         proposal_id: u128,
-        vote_count: u128,
         name: felt252,
         description: felt252,
         deadline: u256,
-        is_proposed: bool,
     }
 
     #[derive(Drop, starknet::Store)]
     struct Member {
-        proposal_id: u128,
-        vote_count: u128,
-        name: felt252,
-        description: felt252,
-        deadline: u256,
-        is_proposed: bool,
+        member_id: u128,
+        member_address: ContractAddress,
     }
 
 #[starknet::interface]
@@ -35,53 +29,71 @@ trait IDAO<TContractState> {
 
 #[starknet::contract]
 mod ClinexDao {
-    use clinex::clinex_token::{get_balance_of_user, transfer};
+    use clinex::clinex_token::{ITokenDispatcher, ITokenDispatcherTrait, get_balance_of_user, transfer};
     use starknet::{get_caller_address, get_contract_address, get_block_timestamp};
-    use super::{ITokenDispatcher, ITokenDispatcherTrait};
+    use super::{Member, IDAO};
 
     #[storage]
     struct Storage {
         proposals: usize,
         proposal_count: u128,
         members_count: u128,
-        member_list: usize,
+        vote_count: LegacyMap::<(u128, Proposal), u128>,
+        is_proposed: LegacyMap::<(u128, Proposal), bool>,
+        member_list: LegacyMap::<u128,Member>,
         is_member: LegacyMap::<ContractAddress,bool>,
         rejected_proposals: usize,
         is_voted: LegacyMap::<(Proposal, get_caller_address), bool>,
-        member_id: u128,
         token: ContractAddress
-    }
-
-    #[constructor]
-    fn constructor(ref self: ContractState) {
-        let token: ContractAddress = 0x01cb296d5ae3f94e244b4332b99033fb22987d9e46252414f905fece3032b23f.try_into().unwrap();
-        self.token.write(token);
     }
 
     #[external(v0)]
     impl IDaoImpl of clinex::clinex_dao::IDAO<ContractState>{
         fn join_dao(ref self: ContractState ) -> u128 {
-            // let token = ITokenDispatcher {self.token.read()};
+            let token: ContractAddress = 0x01cb296d5ae3f94e244b4332b99033fb22987d9e46252414f905fece3032b23f.try_into().unwrap();
             assert(self.is_member.read(get_caller_address()) == false, 'Already a Member');
-            assert(ITokenDispatcher {self.token.read()}.get_balance_of_user(get_caller_address()) >= 1000, 'Insufficient Tokens');
-            transfer(get_contract_address, 1000);
-            self.member_list.append(get_caller_address());
-            self.is_member.write(true);
+            assert(ITokenDispatcher {token}.get_balance_of_user(get_caller_address()) >= 1000, 'Insufficient Tokens');
+            ITokenDispatcher {token}.transfer(get_contract_address, 1000);
+            let id = self.members_count.read() + 1;
+            let member = Member {
+                member_id: id,
+                member_address: get_caller_address(),
+            };
+            self.member_list.append(id, member);
+            self.is_member.write(member.member_address, true);
             self.members_count.write(self.members_count.read() + 1);
-            self.member_id.write(self.members_count.read());
-            
+            member.member_id
         }
+
         fn access(self: @TContractState) -> bool{
             assert(self.is_member.read(get_caller_address()) == true, 'Not a member');
         }
-        fn member_list(self: @ContractStatre) -> ArrayTrait {
+
+        fn member_list(self: @ContractStatre) -> Array<Member> {
             self.access();
-            self.member_list.read()   
+            let members = ArrayTrait::<Member>::new();
+            let count = self.members_count.read();
+            let counter = 1;
+
+            if count > 0 {
+                loop {
+                    let member = self.member_list.read(counter);
+                    members.append(member);
+                    counter += 1
+
+                    if counter > count {
+                        break;
+                    }
+                }
+            }   
+            members
         }
+
         fn view_proposals(self: @ContractState) -> ArrayTrait {
             self.access();
             self.proposals.read()
         }
+
         fn create_proposal(ref self: ContractState, title: felt252, desc: felt252, deadline: u128) -> u128 {
             self.access();
             let new_proposal = Proposal {
@@ -95,6 +107,7 @@ mod ClinexDao {
             self.proposal_count.write(self.proposal_count.read() + 1);
             new_proposal.proposal_id
         }
+
         fn vote(ref self: ContractState, proposal_id: u128) -> bool {
             self.access();
             let proposal = Proposal {
@@ -105,6 +118,7 @@ mod ClinexDao {
             self.is_voted.write((proposal, get_caller_address()), true)
 
         }
+
         fn execute_propostl(ref self: ContractState, proposal_id: u128) -> bool {
             self.access();
             let proposal = Proposal;
@@ -115,6 +129,7 @@ mod ClinexDao {
             }
 
         }
+
         fn rejected_proposals(self: @ContractState) -> ArrayTrait {
             self.access();
             self.rejected_proposals.read()
