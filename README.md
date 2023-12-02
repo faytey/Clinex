@@ -1,5 +1,5 @@
 
-## About the Clinex project.        [Our Website](https://clinexapp.vercel.app)
+## About the Clinex Project.        [Our Website](https://clinexapp.vercel.app)
 
 Providing the most impactful solutions to climate related problems around the world. CliNex DAO is open to NGOs, businesses, agencies, and organisations. To become a member, you will have to mint CliNex tokens which give you access to the DAO.
 
@@ -29,55 +29,15 @@ Technologies used for front end and integration:
 Starknet.js, Next.js, Tailwind CSS, JavaScript,
 OpenWeatherMap API, Google map API. [Explore Our Dapp](https://clinexapp.vercel.app)
 
-# ClinexToken. ($CTK)
+# CliNex Token. ($CTK)
 
-ClinexToken is a StarkNet smart contract that implements a simple token standard. It allows users to mint, transfer, approve, and perform other token-related operations. It act as a means to join the CliNex Dao and participate in the governance
+CliNex Token is a StarkNet smart contract that implements a simple token standard. It allows users to mint and perform other token-related operations. It gives access to become a member of the Dao and participate in the governance
 
 
 ### Minting Tokens
 
 To mint tokens, call the `mint` function:
 [Mint token](https://clinexapp.vercel.app/minttoken)
-To n
-### Transferring Tokens
-
-To transfer tokens, call the `transfer` function:
-
-```bash
-starknet invoke --address CONTRACT_ADDRESS --abi ClinexToken ITokens.transfer --inputs '{"address": "RECEIVER_ADDRESS", "amount": AMOUNT}'
-```
-
-### Approving Allowance
-
-To approve allowance for another address, call the `approval` function:
-
-```bash
-starknet invoke --address CONTRACT_ADDRESS --abi ClinexToken ITokens.approval --inputs '{"to": "TO_ADDRESS", "amount": AMOUNT}'
-```
-
-### Checking Allowance
-
-To check the allowance for a specific address, call the `allowance` function:
-
-```bash
-starknet call --address CONTRACT_ADDRESS --abi ClinexToken ITokens.allowance --inputs '{"from": "FROM_ADDRESS", "to": "TO_ADDRESS"}'
-```
-
-### Transferring From
-
-To transfer tokens from one address to another using approved allowance, call the `transfer_from` function:
-
-```bash
-starknet invoke --address CONTRACT_ADDRESS --abi ClinexToken ITokens.transfer_from --inputs '{"from": "FROM_ADDRESS", "to": "TO_ADDRESS", "amount": AMOUNT}'
-```
-
-### Withdrawing Tokens
-
-To withdraw tokens from the contract, call the `withdrawTokens` function:
-
-```bash
-starknet invoke --address CONTRACT_ADDRESS --abi ClinexToken ITokens.withdrawTokens --inputs '{"contract_address": "CONTRACT_ADDRESS", "amount": AMOUNT}'
-```
 
 ### Getting Token Information
 
