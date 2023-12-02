@@ -3,23 +3,6 @@
 
 ClinexToken is a StarkNet smart contract that implements a simple token standard. It allows users to mint, transfer, approve, and perform other token-related operations.
 
-## Table of Contents
-  - [About our project](about-us)
-  - [Contract Addresses](contract-address)
-  - [Key features](#keyFeatures)
-  - [Front end tools](Frontend)
-  - [Usage](#usage)
-  - [Minting Tokens](#minting-tokens)
-  - [Transferring Tokens](#transferring-tokens)
-  - [Approving Allowance](#approving-allowance)
-  - [Checking Allowance](#checking-allowance)
-  - [Transferring From](#transferring-from)
-  - [Withdrawing Tokens](#withdrawing-tokens)
-  - [Getting Token Information](#getting-token-information)
-- [Events](#events)
-- [Contributing](#contributing)
-- [License](#license)
-
 ## About project
 
 Providing the most impactful solutions to climate related problems around the world. CliNex DAO is open to NGOs, businesses, agencies, and organisations. To become a member, you will have to mint CliNex tokens which give you access to the DAO.
