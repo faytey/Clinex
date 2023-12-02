@@ -1,5 +1,4 @@
-
-## About the Clinex Project.        [Our Website](https://clinexapp.vercel.app)
+## About the StarkNet CliNex Project.        [Our Website](https://clinexapp.vercel.app)
 
 Providing the most impactful solutions to climate related problems around the world. CliNex DAO is open to NGOs, businesses, agencies, and organisations. To become a member, you will have to mint CliNex tokens which give you access to the DAO.
 
@@ -31,7 +30,7 @@ OpenWeatherMap API, Google map API. [Explore Our Dapp](https://clinexapp.vercel.
 
 # CliNex Token ($CTK)
 
-CliNex Token is a StarkNet smart contract that implements a simple token standard. It allows users to mint and perform other token-related operations. It gives access to become a member of the Dao and participate in the governance
+CliNex Token is a StarkNet smart contract that implements a simple token standard. It allows users to mint and perform other token-related operations. It gives access to become a member of the Dao and participate in the governance. To interact with this contract, ensure you have ArgentX or Braavos smart wallet install on your browser, connect to the testnet and request for goerli Eth which will be use to pay for transaction fees
 
 
 ### Minting Tokens
