@@ -61,7 +61,7 @@ Blog, Admin dashboard.
 ## Front end Tools
 Technologies used for front end and integration: 
 Starknet.js, Next.js, Tailwind CSS, JavaScript,
-OpenWeatherMap API, Google map API.
+OpenWeatherMap API, Google map API. [Explore Our Dapp](https://clinexapp.vercel.app)
 
 ## Usage
 
