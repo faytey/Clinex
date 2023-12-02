@@ -20,7 +20,7 @@ export default function ClimateData8(){
     const fetchClimateData8 = async () => {
       try {
         const response = await axios.get(
-          'http://api.openweathermap.org/data/2.5/weather?q=america&appid=2e6fc6d24b084dba01ab9a4c67f555f1'
+          'https://api.openweathermap.org/data/2.5/weather?q=america&appid=2e6fc6d24b084dba01ab9a4c67f555f1'
         );
         console.log('Weather Data:', response.data);
         // Extract relevant climate information from the response
