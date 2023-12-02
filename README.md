@@ -10,6 +10,7 @@ ClinexToken is a StarkNet smart contract that implements a simple token standard
   - [Installation](#installation)
   - [Key features](#keyFeatures)
   - [Front end tools](Frontend)
+  - [Contract Address](contract-address)
   - [Usage](#usage)
   - [Minting Tokens](#minting-tokens)
   - [Transferring Tokens](#transferring-tokens)
@@ -63,7 +64,12 @@ Technologies used for front end and integration:
 Starknet.js, Next.js, Tailwind CSS, JavaScript,
 OpenWeatherMap API, Google map API. [Explore Our Dapp](https://clinexapp.vercel.app)
 
-## Usage
+## Contract Address
+[Token Contract Address: 0x01cb296d5ae3f94e244b4332b99033fb22987d9e46252414f905fece3032b23f ](https://goerli.voyager.online/contract/0x01cb296d5ae3f94e244b4332b99033fb22987d9e46252414f905fece3032b23f)
+
+[DAO Contract Address: 0x02036e19074e2f0087bf7bcd46b091338224d751266743c231cc44d19af327bf](https://goerli.voyager.online/contract/0x02036e19074e2f0087bf7bcd46b091338224d751266743c231cc44d19af327bf)
+
+[Climate Contract Address : 0x05e5aac54bfb81faf747f7064197736626fd0a7f412c77755d9da7f40ca1c015](https://goerli.voyager.online/contract/0x05e5aac54bfb81faf747f7064197736626fd0a7f412c77755d9da7f40ca1c015)
 
 ### Minting Tokens
 
@@ -157,7 +163,6 @@ The Clinex DAO (Decentralized Autonomous Organization) smart contract is designe
 - **Membership Management:** Users can join the DAO by staking a specified amount of tokens.
 - **Proposal Creation:** DAO members can create proposals, providing details such as title, description, and deadline.
 - **Voting:** Members can vote on proposals, influencing their approval or rejection.
-- **Execution of Proposals:** Approved proposals can be executed, triggering associated actions.
 
 ## Contract Structure
 
@@ -252,9 +257,9 @@ const members = dao.member_list();
 
 ## Contributors
 
-- [Jeremiah D. Oyeniran](https://github.com/jerydam)
 - [Faith M. Roberts](https://github.com/faytey)
 - [Patrick Ominisan](https://github.com/mrpatrick030)
+- [Jeremiah D. Oyeniran](https://github.com/jerydam)
 
 ## License
 
