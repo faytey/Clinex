@@ -94,74 +94,22 @@ The `Proposal` struct represents a DAO proposal, containing details such as the 
 
 ### Joining the DAO
 
-To join the CliNex DAO, a user can go to the DAO page on the website to join the Dao . (Require the user have 1000 $CTK token in possession)
-[Join DAO](https://clinexapp.vercel.app/governance)
+To join the CliNex DAO, a user can go to the DAO page on the website and click on [Join DAO](https://clinexapp.vercel.app/governance) tab to join the Dao . (Provided the user have atleast 1000 $CTK token in their wallet)
+
 
 ### Creating a Proposal
+To `create_proposal` members can click on the [create propasal](https://clinexapp.vercel.app/governance) tab on the website, the functions return the unique id of the proposal.
 
-Members can create proposals using the `create_proposal` function, providing details such as the title, description, and deadline. The function returns the unique ID of the created proposal.
 
-```rust
-// Example: Create a Proposal
-const proposalId = dao.create_proposal("Proposal Title", "Description", deadline);
-```
 
 ### Viewing Proposals
 
-Members can view the list of proposals using the `view_proposals` function.
+Members can view the list of proposals by clicking on the [View proposal](https://clinexapp.vercel.app/governance) tab on the website 
 
-```rust
-// Example: View Proposals
-const proposals = dao.view_proposals();
-```
 
 ### Voting on a Proposal
 
-Members can vote on a proposal using the `vote` function, providing the proposal ID. The function returns a boolean indicating the success of the vote.
-
-```rust
-// Example: Vote on a Proposal
-const success = dao.vote(proposalId);
-```
-
-### Executing a Proposal
-
-Once a proposal is approved through voting, members can execute the proposal using the `execute_proposal` function.
-
-```rust
-// Example: Execute a Proposal
-const success = dao.execute_proposal(proposalId);
-```
-
-### Accessing Member List
-
-To access the list of members, the `member_list` function can be used.
-
-```rust
-// Example: Access Member List
-const members = dao.member_list();
-```
-
-## Getting Started
-
-1. **Clone Repository:**
-   ```bash
-   git clone https://github.com/faytey/Clinex.git
-   ```
-
-2. **Install Dependencies:**
-   ```bash
-   cd clinex-dao
-   # Install dependencies as needed
-   ```
-
-3. **Deploy Contract:**
-   - Follow the StarkNet documentation on deploying contracts to deploy the `ClinexDao` contract.
-   - Configure the contract parameters as necessary.
-
-4. **Interact with Contract:**
-   - Use a StarkNet-compatible environment to interact with the deployed contract.
-   - Call the provided functions as needed for DAO operations.
+Members can vote for their favourite proposal by clicking the [Vote proposal](https://clinexapp.vercel.app/governance) tab on the website
 
 ## Contributors
 
@@ -171,6 +119,6 @@ const members = dao.member_list();
 
 ## License
 
-This Clinex DAO smart contract is licensed under the [] License.
+This Clinex DAO smart contract is licensed under the MIT license.
 ```
 
