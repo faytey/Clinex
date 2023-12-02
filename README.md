@@ -30,6 +30,7 @@ OpenWeatherMap API, Google map API. [Explore Our Dapp](https://clinexapp.vercel.
 
 # CliNex Token ($CTK)
 
+## Overview 
 CliNex Token is a StarkNet smart contract that implements a simple token standard. It allows users to mint and perform other token-related operations. It gives access to become a member of the Dao and participate in the governance. **To interact with this contract, ensure you have ArgentX or Braavos Smart Wallet extension installed on your browser, connect to the testnet and request for goerli Eth which will be used to pay for transaction fees.**
 
 
@@ -115,9 +116,9 @@ A member can view the number of votes on a proposal by clicking on the [view num
 
 ## Contributors
 
-- [Faith M. Roberts](https://github.com/faytey)
-- [Patrick Ominisan](https://github.com/mrpatrick030)
-- [Jeremiah D. Oyeniran](https://github.com/jerydam)
+- [Faith M. Roberts](https://github.com/faytey) - Smart Contract Engineer.
+- [Patrick Ominisan](https://github.com/mrpatrick030) - Blockchain Engineer.
+- [Jeremiah D. Oyeniran](https://github.com/jerydam) - Blockchain Developer.
 
 ## License
 
