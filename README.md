@@ -1,5 +1,4 @@
-
-## About the Clinex Project.        [Our Website](https://clinexapp.vercel.app)
+## About the StarkNet CliNex Project.        [Our Website](https://clinexapp.vercel.app)
 
 Providing the most impactful solutions to climate related problems around the world. CliNex DAO is open to NGOs, businesses, agencies, and organisations. To become a member, you will have to mint CliNex tokens which give you access to the DAO.
 
@@ -31,13 +30,13 @@ OpenWeatherMap API, Google map API. [Explore Our Dapp](https://clinexapp.vercel.
 
 # CliNex Token ($CTK)
 
-CliNex Token is a StarkNet smart contract that implements a simple token standard. It allows users to mint and perform other token-related operations. It gives access to become a member of the Dao and participate in the governance
+CliNex Token is a StarkNet smart contract that implements a simple token standard. It allows users to mint and perform other token-related operations. It gives access to become a member of the Dao and participate in the governance. **To interact with this contract, ensure you have ArgentX or Braavos Smart Wallet extension installed on your browser, connect to the testnet and request for goerli Eth which will be used to pay for transaction fees.**
 
 
 ### Minting Tokens
 
 To mint tokens, call the `mint` function:
-[Mint token](https://clinexapp.vercel.app/minttoken)
+[Mint token](https://clinexapp.vercel.app/minttoken).
 
 ### Getting Token Information
 
@@ -67,7 +66,7 @@ This project is licensed under the MIT License
 # CliNex DAO Smart Contract
 
 ## Overview
-CliNex Dao is a decentralized autonomous organization (DAO) built on StarkNet with a mission to confront climate change. Leveraging the blockchain technology, CliNex Dao fosters transparency and collaboration in addressing environmental challenges. The DAO empowers a global network of participants or organizations (NGOs, Businesses and Agencies), to contribute to sustainable practices and promote innovative solutions for climate change. Through a democratic governance model, token holders with a minimum of 1000 $CTK tokens engage in creation of proposals, voting on proposals, influence decisions made to tackle climate problems and  resource allocations.
+CliNex Dao is a decentralized autonomous organization (DAO) built on StarkNet with a mission to confront climate change. Leveraging the blockchain technology, CliNex Dao fosters transparency and collaboration in addressing environmental challenges. The DAO empowers a global network of participants or organizations (NGOs, Businesses and Agencies), to contribute to sustainable practices and promote innovative solutions for climate change. Through a democratic governance model, token holders with a minimum of 1000 $CTK tokens engage in creation of proposals, voting on proposals, influence decisions made to tackle climate problems and  resource allocations. **To interact with this contract, ensure you have ArgentX or Braavos Smart Wallet extension installed on your browser, connect to the testnet and request for goerli Eth which will be used to pay for transaction fees.**
 
 ## Features
 
@@ -82,90 +81,37 @@ CliNex Dao is a decentralized autonomous organization (DAO) built on StarkNet wi
 
 The `IDAO` interface defines the methods that the Clinex DAO contract implements. It includes functions for joining the DAO, accessing DAO features, managing member lists, creating and viewing proposals, voting on proposals, and executing proposals.
 
-### Clinex DAO Contract (`ClinexDao`)
+### CliNex DAO Contract (`CliNexDao`)
 
-The `ClinexDao` contract implements the `IDAO` interface and provides the core logic for DAO operations. It uses StarkNet storage to maintain information about proposals, members, votes, and other relevant data.
+The `CliNexDao` contract implements the `IDAO` interface and provides the core logic for DAO operations. It uses StarkNet storage to maintain information about proposals, members, votes, and other relevant data.
 
 ### Proposal Struct
 
-The `Proposal` struct represents a DAO proposal, containing details such as the proposal ID, vote count, title, description, deadline, and a flag indicating whether the proposal has been proposed.
+The `Proposal` struct represents a DAO proposal, containing details such as the proposal ID, title, description, deadline, and the propasal
 
 ## Usage
 
 ### Joining the DAO
 
-To join the Clinex DAO, a user can call the `join_dao` function, staking a specified amount of tokens (e.g., 1000 tokens). Upon successful membership, the user is added to the member list.
+To join the CliNex DAO, a user can go to the DAO page on the website and click on [Join DAO](https://clinexapp.vercel.app/governance) tab to join the Dao . (Provided the user have atleast 1000 $CTK token in their wallet)
 
-```rust
-// Example: Join the DAO
-const proposalId = dao.join_dao();
-```
 
 ### Creating a Proposal
+To create proposal members can click on the [create propasal](https://clinexapp.vercel.app/governance) tab on the website, the function return the unique id of the proposal.
 
-Members can create proposals using the `create_proposal` function, providing details such as the title, description, and deadline. The function returns the unique ID of the created proposal.
 
-```rust
-// Example: Create a Proposal
-const proposalId = dao.create_proposal("Proposal Title", "Description", deadline);
-```
 
 ### Viewing Proposals
 
-Members can view the list of proposals using the `view_proposals` function.
+Members can view the list of proposals by clicking on the [View proposal](https://clinexapp.vercel.app/governance) tab on the website 
 
-```rust
-// Example: View Proposals
-const proposals = dao.view_proposals();
-```
 
 ### Voting on a Proposal
 
-Members can vote on a proposal using the `vote` function, providing the proposal ID. The function returns a boolean indicating the success of the vote.
+Members can vote for their favourite proposal by clicking the [Vote proposal](https://clinexapp.vercel.app/governance) tab on the website
 
-```rust
-// Example: Vote on a Proposal
-const success = dao.vote(proposalId);
-```
-
-### Executing a Proposal
-
-Once a proposal is approved through voting, members can execute the proposal using the `execute_proposal` function.
-
-```rust
-// Example: Execute a Proposal
-const success = dao.execute_proposal(proposalId);
-```
-
-### Accessing Member List
-
-To access the list of members, the `member_list` function can be used.
-
-```rust
-// Example: Access Member List
-const members = dao.member_list();
-```
-
-## Getting Started
-
-1. **Clone Repository:**
-   ```bash
-   git clone https://github.com/faytey/Clinex.git
-   ```
-
-2. **Install Dependencies:**
-   ```bash
-   cd clinex-dao
-   # Install dependencies as needed
-   ```
-
-3. **Deploy Contract:**
-   - Follow the StarkNet documentation on deploying contracts to deploy the `ClinexDao` contract.
-   - Configure the contract parameters as necessary.
-
-4. **Interact with Contract:**
-   - Use a StarkNet-compatible environment to interact with the deployed contract.
-   - Call the provided functions as needed for DAO operations.
+### View vote on a proposal 
+A member can view the number of votes on a proposal by clicking on the [view number of votes](https://clinexapp.vercel.app/governance) tab on the website. input the vote id and click on submit to see the number of votes 
 
 ## Contributors
 
@@ -175,6 +121,6 @@ const members = dao.member_list();
 
 ## License
 
-This Clinex DAO smart contract is licensed under the [] License.
+This Clinex DAO smart contract is licensed under the MIT license.
 ```
 
