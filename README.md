@@ -8,7 +8,9 @@ ClinexToken is a StarkNet smart contract that implements a simple token standard
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
-- [Usage](#usage)
+  - [Key features](#keyFeatures)
+  - [Front end tools](Frontend)
+  - [Usage](#usage)
   - [Minting Tokens](#minting-tokens)
   - [Transferring Tokens](#transferring-tokens)
   - [Approving Allowance](#approving-allowance)
@@ -50,6 +52,16 @@ $ curl --proto '=https' --tlsv1.2 -sSf https://docs.swmansion.com/scarb/install.
    ```bash
    starknet deploy --contract ClinexToken --network alpha
    ```
+ ## Key features
+Key features of CliNex
+
+DAO, dApp, Token, Climate data and contract, 
+Blog, Admin dashboard.
+
+## Front end Tools
+Technologies used for front end and integration: 
+Starknet.js, Next.js, Tailwind CSS, JavaScript,
+OpenWeatherMap API, Google map API.
 
 ## Usage
 
