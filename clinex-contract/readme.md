@@ -217,28 +217,8 @@ To access the list of members, the `member_list` function can be used.
 const members = dao.member_list();
 ```
 
-## Getting Started
 
-1. **Clone Repository:**
-   ```bash
-   git clone https://github.com/faytey/Clinex.git
-   ```
-
-2. **Install Dependencies:**
-   ```bash
-   cd clinex-dao
-   # Install dependencies as needed
-   ```
-
-3. **Deploy Contract:**
-   - Follow the StarkNet documentation on deploying contracts to deploy the `ClinexDao` contract.
-   - Configure the contract parameters as necessary.
-
-4. **Interact with Contract:**
-   - Use a StarkNet-compatible environment to interact with the deployed contract.
-   - Call the provided functions as needed for DAO operations.
-
-**CliNex Dao Climate Reporting Contract**
+# CliNex Dao Climate Reporting Contract
 
 ## Overview
 
