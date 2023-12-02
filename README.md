@@ -74,7 +74,7 @@ CliNex Dao is a decentralized autonomous organization (DAO) built on StarkNet wi
 - **Membership Management:** For users to join the DAO, they should have a minimum 1000 $CTK Token .
 - **Proposal Creation:** DAO members can create proposals, providing details such as title, description, and deadline.
 - **Voting of Proposals:** Members can vote on proposals, influencing their approval or rejection.
-- **Viewing of Proposals:** Member a list of all the proposals that have be made in the Dao 
+- **Viewing of Proposals:** Member can see a list of all the proposals that have be made in the Dao 
 
 ## Contract Structure
 
