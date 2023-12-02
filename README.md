@@ -4,10 +4,6 @@
 ClinexToken is a StarkNet smart contract that implements a simple token standard. It allows users to mint, transfer, approve, and perform other token-related operations.
 
 ## Table of Contents
-
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
   - [About our project](about-us)
   - [Contract Addresses](contract-address)
   - [Key features](#keyFeatures)
@@ -24,48 +20,19 @@ ClinexToken is a StarkNet smart contract that implements a simple token standard
 - [Contributing](#contributing)
 - [License](#license)
 
-## Getting Started
+## About project
 
-### Prerequisites
+Providing the most impactful solutions to climate related problems around the world. CliNex DAO is open to NGOs, businesses, agencies, and organisations. To become a member, you will have to mint CliNex tokens which give you access to the DAO.
+ *Purpose of CliNex* 
+Our mission is to provide NGOs, businesses, agencies, and organisations with a straightforward means of supporting thousands of victims of climate change worldwide. We collect live climate change data, and using our DAO as a powerful tool, members can create, view and vote for proposals. A proposal agreed upon (voted) by the DAO is being effected i.e., if the proposal with the highest votes is to give food and shelter to the climate change victims, the DAO takes action and puts it into effect. As a means of follow-up, our website features a blog to show community updates and an admin dashboard to manage these updates.
 
-Before you begin, make sure you have scarb installed:
-
-$ curl --proto '=https' --tlsv1.2 -sSf https://docs.swmansion.com/scarb/install.sh | sh
-
-### Installation
-
-1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/faytey/Clinex.git
-   ```
-2. cd Clinex
-
-3. $ scarb build
-
-4. Compile the contract:
-
-   ```bash
-   starknet-compile clinex_token.cairo
-   ```
-
-5. Deploy the contract:
-
-   ```bash
-   starknet deploy --contract ClinexToken --network alpha
-   ```
-# Contract Address
+# Contract Addresses 
 [Token Contract Address: 0x01cb296d5ae3f94e244b4332b99033fb22987d9e46252414f905fece3032b23f ](https://goerli.voyager.online/contract/0x01cb296d5ae3f94e244b4332b99033fb22987d9e46252414f905fece3032b23f)
 
 [DAO Contract Address: 0x02036e19074e2f0087bf7bcd46b091338224d751266743c231cc44d19af327bf](https://goerli.voyager.online/contract/0x02036e19074e2f0087bf7bcd46b091338224d751266743c231cc44d19af327bf)
 
 [Climate Contract Address : 0x05e5aac54bfb81faf747f7064197736626fd0a7f412c77755d9da7f40ca1c015](https://goerli.voyager.online/contract/0x05e5aac54bfb81faf747f7064197736626fd0a7f412c77755d9da7f40ca1c015)
 
-## About project
-
-Providing the most impactful solutions to climate related problems around the world. CliNex DAO is open to NGOs, businesses, agencies, and organisations. To become a member, you will have to mint CliNex tokens which give you access to the DAO.
- *Purpose of CliNex* 
-Our mission is to provide NGOs, businesses, agencies, and organisations with a straightforward means of supporting thousands of victims of climate change worldwide. We collect live climate change data, and using our DAO as a powerful tool, members can create, view and vote for proposals. A proposal agreed upon (voted) by the DAO is being effected i.e., if the proposal with the highest votes is to give food and shelter to the climate change victims, the DAO takes action and puts it into effect. As a means of follow-up, our website features a blog to show community updates and an admin dashboard to manage these updates.
 
  ## Key features
 Key features of CliNex
