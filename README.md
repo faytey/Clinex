@@ -1,12 +1,9 @@
 
-# ClinexToken. [Our Website](https://clinexapp.vercel.app)
-
-ClinexToken is a StarkNet smart contract that implements a simple token standard. It allows users to mint, transfer, approve, and perform other token-related operations.
-
-## About project
+## About the Clinex project.        [Our Website](https://clinexapp.vercel.app)
 
 Providing the most impactful solutions to climate related problems around the world. CliNex DAO is open to NGOs, businesses, agencies, and organisations. To become a member, you will have to mint CliNex tokens which give you access to the DAO.
- *Purpose of CliNex* 
+
+ ## Purpose of CliNex
 Our mission is to provide NGOs, businesses, agencies, and organisations with a straightforward means of supporting thousands of victims of climate change worldwide. We collect live climate change data, and using our DAO as a powerful tool, members can create, view and vote for proposals. A proposal agreed upon (voted) by the DAO is being effected i.e., if the proposal with the highest votes is to give food and shelter to the climate change victims, the DAO takes action and puts it into effect. As a means of follow-up, our website features a blog to show community updates and an admin dashboard to manage these updates.
 
 # Contract Addresses 
@@ -23,19 +20,25 @@ Key features of CliNex
 DAO, dApp, Token, Climate data and contract, 
 Blog, Admin dashboard.
 
+
+## Smart contract Tools
+Scarb, Rust, Snforge and Cairo
+
 ## Front end Tools
 Technologies used for front end and integration: 
 Starknet.js, Next.js, Tailwind CSS, JavaScript,
 OpenWeatherMap API, Google map API. [Explore Our Dapp](https://clinexapp.vercel.app)
 
+# ClinexToken. ($CTK)
+
+ClinexToken is a StarkNet smart contract that implements a simple token standard. It allows users to mint, transfer, approve, and perform other token-related operations. It act as a means to join the CliNex Dao and participate in the governance
+
+
 ### Minting Tokens
 
 To mint tokens, call the `mint` function:
-
-```bash
-starknet invoke --address CONTRACT_ADDRESS --abi ClinexToken ITokens.mint
-```
-
+[Mint token](https://clinexapp.vercel.app/minttoken)
+To n
 ### Transferring Tokens
 
 To transfer tokens, call the `transfer` function:
