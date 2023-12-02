@@ -30,7 +30,7 @@ OpenWeatherMap API, Google map API. [Explore Our Dapp](https://clinexapp.vercel.
 
 # CliNex Token ($CTK)
 
-CliNex Token is a StarkNet smart contract that implements a simple token standard. It allows users to mint and perform other token-related operations. It gives access to become a member of the Dao and participate in the governance. **To interact with this contract, ensure you have ArgentX or Braavos Smart Wallet extension installed on your browser, connect to the testnet and request for goerli Eth which will be use to pay for transaction fees.**
+CliNex Token is a StarkNet smart contract that implements a simple token standard. It allows users to mint and perform other token-related operations. It gives access to become a member of the Dao and participate in the governance. **To interact with this contract, ensure you have ArgentX or Braavos Smart Wallet extension installed on your browser, connect to the testnet and request for goerli Eth which will be used to pay for transaction fees.**
 
 
 ### Minting Tokens
@@ -66,7 +66,7 @@ This project is licensed under the MIT License
 # CliNex DAO Smart Contract
 
 ## Overview
-CliNex Dao is a decentralized autonomous organization (DAO) built on StarkNet with a mission to confront climate change. Leveraging the blockchain technology, CliNex Dao fosters transparency and collaboration in addressing environmental challenges. The DAO empowers a global network of participants or organizations (NGOs, Businesses and Agencies), to contribute to sustainable practices and promote innovative solutions for climate change. Through a democratic governance model, token holders with a minimum of 1000 $CTK tokens engage in creation of proposals, voting on proposals, influence decisions made to tackle climate problems and  resource allocations.
+CliNex Dao is a decentralized autonomous organization (DAO) built on StarkNet with a mission to confront climate change. Leveraging the blockchain technology, CliNex Dao fosters transparency and collaboration in addressing environmental challenges. The DAO empowers a global network of participants or organizations (NGOs, Businesses and Agencies), to contribute to sustainable practices and promote innovative solutions for climate change. Through a democratic governance model, token holders with a minimum of 1000 $CTK tokens engage in creation of proposals, voting on proposals, influence decisions made to tackle climate problems and  resource allocations. **To interact with this contract, ensure you have ArgentX or Braavos Smart Wallet extension installed on your browser, connect to the testnet and request for goerli Eth which will be used to pay for transaction fees.**
 
 ## Features
 
