@@ -14,7 +14,7 @@ Our mission is to provide NGOs, businesses, agencies, and organisations with a s
 
 
  ## Key features
-Key features of CliNex
+### Key features of CliNex
 
 DAO, dApp, Token, Climate data and contract, 
 Blog, Admin dashboard.
