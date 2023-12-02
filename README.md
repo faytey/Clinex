@@ -258,6 +258,6 @@ const members = dao.member_list();
 
 ## License
 
-This Clinex DAO smart contract is licensed under the [Your License] License.
+This Clinex DAO smart contract is licensed under the [] License.
 ```
 
