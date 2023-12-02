@@ -1,121 +1,47 @@
 
-# ClinexToken
+## About the Clinex Project.        [Our Website](https://clinexapp.vercel.app)
 
-ClinexToken is a StarkNet smart contract that implements a simple token standard. It allows users to mint, transfer, approve, and perform other token-related operations.
+Providing the most impactful solutions to climate related problems around the world. CliNex DAO is open to NGOs, businesses, agencies, and organisations. To become a member, you will have to mint CliNex tokens which give you access to the DAO.
 
-## Table of Contents
+ ## Purpose of CliNex
+Our mission is to provide NGOs, businesses, agencies, and organisations with a straightforward means of supporting thousands of victims of climate change worldwide. We collect live climate change data, and using our DAO as a powerful tool, members can create, view and vote for proposals. A proposal agreed upon (voted) by the DAO is being effected i.e., if the proposal with the highest votes is to give food and shelter to the climate change victims, the DAO takes action and puts it into effect. As a means of follow-up, our website features a blog to show community updates and an admin dashboard to manage these updates.
 
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-  - [Key features](#keyFeatures)
-  - [Front end tools](Frontend)
-  - [Usage](#usage)
-  - [Minting Tokens](#minting-tokens)
-  - [Transferring Tokens](#transferring-tokens)
-  - [Approving Allowance](#approving-allowance)
-  - [Checking Allowance](#checking-allowance)
-  - [Transferring From](#transferring-from)
-  - [Withdrawing Tokens](#withdrawing-tokens)
-  - [Getting Token Information](#getting-token-information)
-- [Events](#events)
-- [Contributing](#contributing)
-- [License](#license)
+# Contract Addresses 
+[Token Contract Address: 0x01cb296d5ae3f94e244b4332b99033fb22987d9e46252414f905fece3032b23f ](https://goerli.voyager.online/contract/0x01cb296d5ae3f94e244b4332b99033fb22987d9e46252414f905fece3032b23f)
 
-## Getting Started
+[DAO Contract Address: 0x02036e19074e2f0087bf7bcd46b091338224d751266743c231cc44d19af327bf](https://goerli.voyager.online/contract/0x02036e19074e2f0087bf7bcd46b091338224d751266743c231cc44d19af327bf)
 
-### Prerequisites
+[Climate Contract Address : 0x05e5aac54bfb81faf747f7064197736626fd0a7f412c77755d9da7f40ca1c015](https://goerli.voyager.online/contract/0x05e5aac54bfb81faf747f7064197736626fd0a7f412c77755d9da7f40ca1c015)
 
-Before you begin, make sure you have scarb installed:
 
-$ curl --proto '=https' --tlsv1.2 -sSf https://docs.swmansion.com/scarb/install.sh | sh
-
-### Installation
-
-1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/faytey/Clinex.git
-   ```
-2. cd Clinex
-
-3. $ scarb build
-
-4. Compile the contract:
-
-   ```bash
-   starknet-compile clinex_token.cairo
-   ```
-
-5. Deploy the contract:
-
-   ```bash
-   starknet deploy --contract ClinexToken --network alpha
-   ```
  ## Key features
 Key features of CliNex
 
 DAO, dApp, Token, Climate data and contract, 
 Blog, Admin dashboard.
 
+
+## Smart contract Tools
+Scarb, Rust, Snforge and Cairo
+
 ## Front end Tools
 Technologies used for front end and integration: 
 Starknet.js, Next.js, Tailwind CSS, JavaScript,
 OpenWeatherMap API, Google map API. [Explore Our Dapp](https://clinexapp.vercel.app)
 
-## Usage
+# CliNex Token ($CTK)
+
+CliNex Token is a StarkNet smart contract that implements a simple token standard. It allows users to mint and perform other token-related operations. It gives access to become a member of the Dao and participate in the governance
+
 
 ### Minting Tokens
 
 To mint tokens, call the `mint` function:
-
-```bash
-starknet invoke --address CONTRACT_ADDRESS --abi ClinexToken ITokens.mint
-```
-
-### Transferring Tokens
-
-To transfer tokens, call the `transfer` function:
-
-```bash
-starknet invoke --address CONTRACT_ADDRESS --abi ClinexToken ITokens.transfer --inputs '{"address": "RECEIVER_ADDRESS", "amount": AMOUNT}'
-```
-
-### Approving Allowance
-
-To approve allowance for another address, call the `approval` function:
-
-```bash
-starknet invoke --address CONTRACT_ADDRESS --abi ClinexToken ITokens.approval --inputs '{"to": "TO_ADDRESS", "amount": AMOUNT}'
-```
-
-### Checking Allowance
-
-To check the allowance for a specific address, call the `allowance` function:
-
-```bash
-starknet call --address CONTRACT_ADDRESS --abi ClinexToken ITokens.allowance --inputs '{"from": "FROM_ADDRESS", "to": "TO_ADDRESS"}'
-```
-
-### Transferring From
-
-To transfer tokens from one address to another using approved allowance, call the `transfer_from` function:
-
-```bash
-starknet invoke --address CONTRACT_ADDRESS --abi ClinexToken ITokens.transfer_from --inputs '{"from": "FROM_ADDRESS", "to": "TO_ADDRESS", "amount": AMOUNT}'
-```
-
-### Withdrawing Tokens
-
-To withdraw tokens from the contract, call the `withdrawTokens` function:
-
-```bash
-starknet invoke --address CONTRACT_ADDRESS --abi ClinexToken ITokens.withdrawTokens --inputs '{"contract_address": "CONTRACT_ADDRESS", "amount": AMOUNT}'
-```
+[Mint token](https://clinexapp.vercel.app/minttoken)
 
 ### Getting Token Information
 
-To get information about the token, you can use the following functions:
+To get more information about the token, you can use the following functions from the stark scan where the token contract is deployed.
 
 - `get_name`
 - `get_symbol`
@@ -126,38 +52,29 @@ To get information about the token, you can use the following functions:
 
 ## Events
 
-The contract emits the following events:
+The contract emits this event:
 
-- `TransferFrom`
-- `Transfer`
 - `Mint`
-- `Withdraw`
-- `Approval`
 
-These events can be used to track various activities on the contract.
-
-## Contributing
-
-Contributions are welcome! Please follow the [CONTRIBUTING.md](CONTRIBUTING.md) guidelines.
+This event can be used to track minting activities on the token contract.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License
 
 
 
-# Clinex DAO Smart Contract
+# CliNex DAO Smart Contract
 
 ## Overview
-
-The Clinex DAO (Decentralized Autonomous Organization) smart contract is designed to manage membership, proposals, and voting within a decentralized organization. It utilizes the StarkNet platform for secure and scalable smart contract execution.
+CliNex Dao is a decentralized autonomous organization (DAO) built on StarkNet with a mission to confront climate change. Leveraging the blockchain technology, CliNex Dao fosters transparency and collaboration in addressing environmental challenges. The DAO empowers a global network of participants or organizations (NGOs, Businesses and Agencies), to contribute to sustainable practices and promote innovative solutions for climate change. Through a democratic governance model, token holders with a minimum of 1000 $CTK tokens engage in creation of proposals, voting on proposals, influence decisions made to tackle climate problems and  resource allocations.
 
 ## Features
 
-- **Membership Management:** Users can join the DAO by staking a specified amount of tokens.
+- **Membership Management:** For users to join the DAO, they should have a minimum 1000 $CTK Token .
 - **Proposal Creation:** DAO members can create proposals, providing details such as title, description, and deadline.
-- **Voting:** Members can vote on proposals, influencing their approval or rejection.
-- **Execution of Proposals:** Approved proposals can be executed, triggering associated actions.
+- **Voting of Proposals:** Members can vote on proposals, influencing their approval or rejection.
+- **Viewing of Proposals:** Members can view a list of all the proposals that have been made in the Dao 
 
 ## Contract Structure
 
@@ -252,9 +169,9 @@ const members = dao.member_list();
 
 ## Contributors
 
-- [Jeremiah D. Oyeniran](https://github.com/jerydam)
 - [Faith M. Roberts](https://github.com/faytey)
 - [Patrick Ominisan](https://github.com/mrpatrick030)
+- [Jeremiah D. Oyeniran](https://github.com/jerydam)
 
 ## License
 
