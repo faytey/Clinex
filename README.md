@@ -29,7 +29,7 @@ Technologies used for front end and integration:
 Starknet.js, Next.js, Tailwind CSS, JavaScript,
 OpenWeatherMap API, Google map API. [Explore Our Dapp](https://clinexapp.vercel.app)
 
-# CliNex Token. ($CTK)
+# CliNex Token ($CTK)
 
 CliNex Token is a StarkNet smart contract that implements a simple token standard. It allows users to mint and perform other token-related operations. It gives access to become a member of the Dao and participate in the governance
 
@@ -64,17 +64,17 @@ This project is licensed under the MIT License
 
 
 
-# Clinex DAO Smart Contract
+# CliNex DAO Smart Contract
 
 ## Overview
-
-The Clinex DAO (Decentralized Autonomous Organization) smart contract is designed to manage membership, proposals, and voting within a decentralized organization. It utilizes the StarkNet platform for secure and scalable smart contract execution.
+CliNex Dao is a decentralized autonomous organization (DAO) built on StarkNet with a mission to confront climate change. Leveraging the blockchain technology, CliNex Dao fosters transparency and collaboration in addressing environmental challenges. The DAO empowers a global network of participants or organizations (NGOs, Businesses and Agencies), to contribute to sustainable practices and promote innovative solutions for climate change. Through a democratic governance model, token holders with a minimum of 1000 $CTK tokens engage in creation of proposals, voting on proposals, influence decisions made to tackle climate problems and  resource allocations.
 
 ## Features
 
-- **Membership Management:** Users can join the DAO by staking a specified amount of tokens.
+- **Membership Management:** For users to join the DAO, they should have a minimum 1000 $CTK Token .
 - **Proposal Creation:** DAO members can create proposals, providing details such as title, description, and deadline.
-- **Voting:** Members can vote on proposals, influencing their approval or rejection.
+- **Voting of Proposals:** Members can vote on proposals, influencing their approval or rejection.
+- **Viewing of Proposals:** Member a list of all the proposals that have be made in the Dao 
 
 ## Contract Structure
 
