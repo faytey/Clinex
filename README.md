@@ -1,5 +1,5 @@
 
-# ClinexToken
+# ClinexToken. [Our Website](https://clinexapp.vercel.app)
 
 ClinexToken is a StarkNet smart contract that implements a simple token standard. It allows users to mint, transfer, approve, and perform other token-related operations.
 
@@ -8,9 +8,9 @@ ClinexToken is a StarkNet smart contract that implements a simple token standard
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
+  - [Contract Addresses](contract-address)
   - [Key features](#keyFeatures)
   - [Front end tools](Frontend)
-  - [Contract Address](contract-address)
   - [Usage](#usage)
   - [Minting Tokens](#minting-tokens)
   - [Transferring Tokens](#transferring-tokens)
@@ -53,6 +53,13 @@ $ curl --proto '=https' --tlsv1.2 -sSf https://docs.swmansion.com/scarb/install.
    ```bash
    starknet deploy --contract ClinexToken --network alpha
    ```
+# Contract Address
+[Token Contract Address: 0x01cb296d5ae3f94e244b4332b99033fb22987d9e46252414f905fece3032b23f ](https://goerli.voyager.online/contract/0x01cb296d5ae3f94e244b4332b99033fb22987d9e46252414f905fece3032b23f)
+
+[DAO Contract Address: 0x02036e19074e2f0087bf7bcd46b091338224d751266743c231cc44d19af327bf](https://goerli.voyager.online/contract/0x02036e19074e2f0087bf7bcd46b091338224d751266743c231cc44d19af327bf)
+
+[Climate Contract Address : 0x05e5aac54bfb81faf747f7064197736626fd0a7f412c77755d9da7f40ca1c015](https://goerli.voyager.online/contract/0x05e5aac54bfb81faf747f7064197736626fd0a7f412c77755d9da7f40ca1c015)
+
  ## Key features
 Key features of CliNex
 
@@ -63,13 +70,6 @@ Blog, Admin dashboard.
 Technologies used for front end and integration: 
 Starknet.js, Next.js, Tailwind CSS, JavaScript,
 OpenWeatherMap API, Google map API. [Explore Our Dapp](https://clinexapp.vercel.app)
-
-## Contract Address
-[Token Contract Address: 0x01cb296d5ae3f94e244b4332b99033fb22987d9e46252414f905fece3032b23f ](https://goerli.voyager.online/contract/0x01cb296d5ae3f94e244b4332b99033fb22987d9e46252414f905fece3032b23f)
-
-[DAO Contract Address: 0x02036e19074e2f0087bf7bcd46b091338224d751266743c231cc44d19af327bf](https://goerli.voyager.online/contract/0x02036e19074e2f0087bf7bcd46b091338224d751266743c231cc44d19af327bf)
-
-[Climate Contract Address : 0x05e5aac54bfb81faf747f7064197736626fd0a7f412c77755d9da7f40ca1c015](https://goerli.voyager.online/contract/0x05e5aac54bfb81faf747f7064197736626fd0a7f412c77755d9da7f40ca1c015)
 
 ### Minting Tokens
 
