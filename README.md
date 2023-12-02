@@ -252,9 +252,9 @@ const members = dao.member_list();
 
 ## Contributors
 
-- [Jerydam](https://github.com/jerydam)
-- [Faytey7](https://github.com/faytey)
-- [Mrpatrick030](https://github.com/mrpatrick030)
+- [Jeremiah D. Oyeniran](https://github.com/jerydam)
+- [Faith M. Roberts](https://github.com/faytey)
+- [Patrick Ominisan](https://github.com/mrpatrick030)
 
 ## License
 
