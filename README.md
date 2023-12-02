@@ -98,7 +98,7 @@ To join the CliNex DAO, a user can go to the DAO page on the website and click o
 
 
 ### Creating a Proposal
-To `create_proposal` members can click on the [create propasal](https://clinexapp.vercel.app/governance) tab on the website, the functions return the unique id of the proposal.
+To create proposal members can click on the [create propasal](https://clinexapp.vercel.app/governance) tab on the website, the function return the unique id of the proposal.
 
 
 
@@ -110,6 +110,9 @@ Members can view the list of proposals by clicking on the [View proposal](https:
 ### Voting on a Proposal
 
 Members can vote for their favourite proposal by clicking the [Vote proposal](https://clinexapp.vercel.app/governance) tab on the website
+
+### View vote on a proposal 
+A member can view the number of votes on a proposal by clicking on the [view number of votes](https://clinexapp.vercel.app/governance) tab on the website. input the vote id and click on submit to see the number of votes 
 
 ## Contributors
 
