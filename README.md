@@ -116,9 +116,9 @@ A member can view the number of votes on a proposal by clicking on the [view num
 
 ## Contributors
 
-- [Faith M. Roberts](https://github.com/faytey)
-- [Patrick Ominisan](https://github.com/mrpatrick030)
-- [Jeremiah D. Oyeniran](https://github.com/jerydam)
+- [Faith M. Roberts](https://github.com/faytey) - Smart Contract Engineer.
+- [Patrick Ominisan](https://github.com/mrpatrick030) - Blockchain Engineer.
+- [Jeremiah D. Oyeniran](https://github.com/jerydam) - Blockchain Developer.
 
 ## License
 
