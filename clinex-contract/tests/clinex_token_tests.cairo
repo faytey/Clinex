@@ -1,10 +1,10 @@
 #[cfg(test)]
 mod tests {
     use core::option::OptionTrait;
-use core::traits::TryInto;
+    use core::traits::TryInto;
     use snforge_std::{declare, ContractClassTrait, start_prank, stop_prank};
     use clinex::clinex_token::{ITokenDispatcher, ITokenDispatcherTrait};
-    use array::ArrayTrait;
+    use core::array::ArrayTrait;
     use starknet::{ContractAddress,get_caller_address};
 
     // #[test]
@@ -169,8 +169,10 @@ use core::traits::TryInto;
         dispatcher.mint(user);
         assert(dispatcher.get_balance_of_user(user) != 0, 'balance is 0');
         assert(dispatcher.get_total_supply() == dispatcher.get_balance_of_user(user), 'supply == 0');
-        dispatcher.approval(contract_address.try_into().unwrap(), 100);
-        assert(dispatcher.allowance(user, contract_address.try_into().unwrap()) != 0, 'allowance is 0');
+        dispatcher.approval(receiver, 100);
+        assert(dispatcher.allowance(user, receiver) != 0, 'allowance is 0');
+        stop_prank(contract_address);
+        start_prank(contract_address, receiver);
         let transfer_from = dispatcher.transfer_from(user, receiver, 10);
         assert(dispatcher.get_balance_of_user(user) != 1000, 'balance is 1000');
         assert(dispatcher.get_balance_of_user(receiver) != 0, 'rec_balance == 0');
