@@ -41,7 +41,7 @@ To mint tokens, call the `mint` function:
 
 ### Getting Token Information
 
-To get information about the token, you can use the following functions:
+To get more information about the token, you can use the following functions from the stark scan where the token contract is deployed.
 
 - `get_name`
 - `get_symbol`
@@ -52,23 +52,15 @@ To get information about the token, you can use the following functions:
 
 ## Events
 
-The contract emits the following events:
+The contract emits this event:
 
-- `TransferFrom`
-- `Transfer`
 - `Mint`
-- `Withdraw`
-- `Approval`
 
-These events can be used to track various activities on the contract.
-
-## Contributing
-
-Contributions are welcome! Please follow the [CONTRIBUTING.md](CONTRIBUTING.md) guidelines.
+This event can be used to track minting activities on the token contract.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License
 
 
 
