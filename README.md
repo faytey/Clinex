@@ -82,24 +82,20 @@ CliNex Dao is a decentralized autonomous organization (DAO) built on StarkNet wi
 
 The `IDAO` interface defines the methods that the Clinex DAO contract implements. It includes functions for joining the DAO, accessing DAO features, managing member lists, creating and viewing proposals, voting on proposals, and executing proposals.
 
-### Clinex DAO Contract (`ClinexDao`)
+### CliNex DAO Contract (`CliNexDao`)
 
-The `ClinexDao` contract implements the `IDAO` interface and provides the core logic for DAO operations. It uses StarkNet storage to maintain information about proposals, members, votes, and other relevant data.
+The `CliNexDao` contract implements the `IDAO` interface and provides the core logic for DAO operations. It uses StarkNet storage to maintain information about proposals, members, votes, and other relevant data.
 
 ### Proposal Struct
 
-The `Proposal` struct represents a DAO proposal, containing details such as the proposal ID, vote count, title, description, deadline, and a flag indicating whether the proposal has been proposed.
+The `Proposal` struct represents a DAO proposal, containing details such as the proposal ID, title, description, deadline, and the propasal
 
 ## Usage
 
 ### Joining the DAO
 
-To join the Clinex DAO, a user can call the `join_dao` function, staking a specified amount of tokens (e.g., 1000 tokens). Upon successful membership, the user is added to the member list.
-
-```rust
-// Example: Join the DAO
-const proposalId = dao.join_dao();
-```
+To join the CliNex DAO, a user can go to the DAO page on the website to join the Dao . (Require the user have 1000 $CTK token in possession)
+[Join DAO](https://clinexapp.vercel.app/governance)
 
 ### Creating a Proposal
 
