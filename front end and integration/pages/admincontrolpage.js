@@ -5,8 +5,11 @@ import 'aos/dist/aos.css';
 import axios from 'axios';
 import Link from "next/link";
 import { useRouter } from 'next/router';
+import ClimateData1 from '@/components/climatedata1';
+import { connect, disconnect } from 'get-starknet';
+import { Contract } from 'starknet';
 
-export default function AdminControl(){
+export default function AdminControl({weather, temperature, pressure, humidity, windspeed, location, longitude, latitude}){
     const [auth, setAuth] = useState(false);
     const [email, setEmail] = useState('');
 
@@ -140,6 +143,198 @@ const handleInput = (event) => {
           });
         }
 
+
+
+        //to write to climate contract
+        const climateContractAddress = "0x05e5aac54bfb81faf747f7064197736626fd0a7f412c77755d9da7f40ca1c015"
+        const ClimateContractABI = [
+          {
+            type: "impl",
+            name: "IReportImpl",
+            interface_name: "clinex::clinex_climate_report::IReport",
+          },
+          {
+            type: "struct",
+            name: "clinex::clinex_climate_report::Report",
+            members: [
+              {
+                name: "location",
+                type: "core::felt252",
+              },
+              {
+                name: "longitude",
+                type: "core::integer::u128",
+              },
+              {
+                name: "latitude",
+                type: "core::integer::u128",
+              },
+              {
+                name: "temperature",
+                type: "core::integer::u128",
+              },
+              {
+                name: "humidity",
+                type: "core::integer::u128",
+              },
+              {
+                name: "weather",
+                type: "core::felt252",
+              },
+              {
+                name: "pressure",
+                type: "core::integer::u128",
+              },
+              {
+                name: "wind_speed",
+                type: "core::integer::u128",
+              },
+              {
+                name: "index",
+                type: "core::integer::u128",
+              },
+            ],
+          },
+          {
+            type: "interface",
+            name: "clinex::clinex_climate_report::IReport",
+            items: [
+              {
+                type: "function",
+                name: "get_climate_reports",
+                inputs: [],
+                outputs: [
+                  {
+                    type: "core::array::Array::<clinex::clinex_climate_report::Report>",
+                  },
+                ],
+                state_mutability: "view",
+              },
+              {
+                type: "function",
+                name: "get_climate_report",
+                inputs: [
+                  {
+                    name: "index",
+                    type: "core::integer::u128",
+                  },
+                ],
+                outputs: [
+                  {
+                    type: "clinex::clinex_climate_report::Report",
+                  },
+                ],
+                state_mutability: "view",
+              },
+              {
+                type: "function",
+                name: "create_climate_report",
+                inputs: [
+                  {
+                    name: "weather",
+                    type: "core::felt252",
+                  },
+                  {
+                    name: "temperature",
+                    type: "core::integer::u128",
+                  },
+                  {
+                    name: "pressure",
+                    type: "core::integer::u128",
+                  },
+                  {
+                    name: "humidity",
+                    type: "core::integer::u128",
+                  },
+                  {
+                    name: "wind_speed",
+                    type: "core::integer::u128",
+                  },
+                  {
+                    name: "location",
+                    type: "core::felt252",
+                  },
+                  {
+                    name: "longitude",
+                    type: "core::integer::u128",
+                  },
+                  {
+                    name: "latitude",
+                    type: "core::integer::u128",
+                  },
+                ],
+                outputs: [
+                  {
+                    type: "core::integer::u128",
+                  },
+                ],
+                state_mutability: "external",
+              },
+            ],
+          },
+          {
+            type: "event",
+            name: "clinex::clinex_climate_report::ClinexClimate::ClimateEvent",
+            kind: "struct",
+            members: [
+              {
+                name: "index",
+                type: "core::integer::u128",
+                kind: "key",
+              },
+              {
+                name: "string",
+                type: "core::felt252",
+                kind: "data",
+              },
+            ],
+          },
+          {
+            type: "event",
+            name: "clinex::clinex_climate_report::ClinexClimate::Event",
+            kind: "enum",
+            variants: [
+              {
+                name: "ClimateEvent",
+                type: "clinex::clinex_climate_report::ClinexClimate::ClimateEvent",
+                kind: "nested",
+              },
+            ],
+          },
+        ];        
+        const insertClimateData1 = async() => {
+          try {
+            const starknet = await connect()
+            const signer = starknet.account
+            const climateContractWriteSettings = new Contract(ClimateContractABI, climateContractAddress, signer)
+            // Convert parameters to be useful for StarkNet as required data types
+            const isValidHex = (str) => /^[0-9a-fA-F]+$/.test(str);
+            const convertToBigInt = (hexString) => {
+              if (isValidHex(hexString)) {
+                // Remove the "0x" prefix and convert to BigInt
+                return BigInt(`0x${hexString}`);
+              } else {
+                return BigInt(0); 
+              }
+            };
+
+            const weatherBigInt = convertToBigInt(weather);
+            const temperatureBigInt = convertToBigInt(temperature);
+            const pressureBigInt = convertToBigInt(pressure);
+            const humidityBigInt = convertToBigInt(humidity);
+            const windspeedBigInt = convertToBigInt(windspeed);
+            const locationBigInt = convertToBigInt(location);
+            const longitudeBigInt = convertToBigInt(longitude);
+            const latitudeBigInt = convertToBigInt(latitude);    
+
+          const writeToClimateContract = await climateContractWriteSettings.create_climate_report(weatherBigInt, temperatureBigInt, pressureBigInt, humidityBigInt, windspeedBigInt, locationBigInt, longitudeBigInt, latitudeBigInt);
+          }
+          catch (error){
+            console.log(error)
+          }
+        }
+
+
   if (auth) {
   return (
     <>
@@ -160,7 +355,10 @@ const handleInput = (event) => {
         <span className='text-[#fff]'>Admin Control Panel</span> 
       </div>
 
-      <div className='lg:mx-[25%] md:mx-[10%] lg:my-[10%] md:my-[10%] my-[35%] bg-[rgba(0,0,0,0.7)]' style={{border:"4px solid #fff"}}>
+     <div className='grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-8 mt-[2cm]'>
+
+      <div className='grid grid-cols-1'>
+      <div className='bg-[rgba(0,0,0,0.7)]' style={{border:"4px solid #fff"}}>
     <div className='bg-[#000] text-center lg:text-[120%] md:text-[120%] font-[500]'>
     <img src="images/thelogo.png" width="120" className='mx-[auto]' />
     </div>
@@ -199,9 +397,23 @@ const handleInput = (event) => {
     </form>
     }
     </div>
+    </div>
 
-
+    <div className='grid-cols-1'>
+    <div className='bg-[rgba(0,0,0,0.7)]' style={{border:"4px solid #fff"}}>
+    <div className='bg-[#000] text-center lg:text-[120%] md:text-[120%] font-[500]'>
+    <img src="images/thelogo.png" width="120" className='mx-[auto]' />
+    </div>
+    <div className='bg-[#010] py-[0.3cm] mb-[0.2cm] text-center font-[600]' style={{display:"block"}}>
+     <div className='text-[120%] font-[600]'>Add Climate Data</div>
+     <div style={{display:"none"}}><ClimateData1 location={location} longitude={longitude} latitude={latitude} temperature={temperature} humidity={humidity} weather={weather} pressure={pressure} windspeed={windspeed}/></div>
+    </div>
+    <div className='p-[5%] my-[1cm]'><button onClick={(e) => insertClimateData1(e)} className='p-[0.3cm] font-[600] bg-[#000] rounded-md w-[100%] text-center signinbutton'>Submit Daily Climate Report</button></div>
+    </div>
+    </div>
       
+    </div>
+
       
       
     {loading ? (
