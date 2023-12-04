@@ -118,13 +118,13 @@ A member can view the number of votes on a proposal by clicking on the [view num
 
 ## Overview
 
-The CliNex Climate change Data is gotten directly from the live open weather map API, Due to the absence of web3 oracle providing live climate change data, the CliNex Dao and CliNex climate contract is dependent on this open weather map API
+The CliNex Climate change Data is gotten directly from the live open weather map API. Due to the absence of web3 oracle providing live climate change data, the CliNex Dao and CliNex climate contract is dependent on this open weather map API. A google map API has also been integrated to display the map of a geographical location we are getting data from.
 
 ## Features
 
 ### 1. Climate Report Structure
 
-The contract defines a `Report` structure with the following fields:
+The Oen weather Map API provide the following climate change data:
 
 - `location`: Geographical location represented as a felt252.
 - `longitude` and `latitude`: Coordinates of the reporting location.
@@ -147,31 +147,6 @@ The contract maintains a storage structure, including a `LegacyMap` for storing 
 ### 4. Events
 
 The contract defines an event `ClimateEvent` that is emitted when a new climate report is created. This event includes the report's index and a descriptive string.
-
-## Usage
-
-1. **Get All Climate Reports:**
-   - Call the `get_climate_reports` function to retrieve an array of all climate reports.
-
-2. **Get Specific Climate Report:**
-   - Call the `get_climate_report` function with the desired report index to retrieve specific climate report details.
-
-3. **Create New Climate Report:**
-   - Call the `create_climate_report` function with the required environmental data to create a new climate report.
-
-4. **Events:**
-   - Monitor the emitted `ClimateEvent` to stay informed about new climate reports and their respective indices.
-
-## Development
-
-- **Dependencies:**
-  - This contract depends on the StarkNet SDK and StarkWare modules.
-
-- **External Functions:**
-  - External functions are implemented for the `IReport` interface to interact with the contract.
-
-- **Events:**
-  - The contract emits events for key activities, providing transparency and an audit trail.
 
 
 ## Contributors
