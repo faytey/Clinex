@@ -128,9 +128,9 @@ The OpenWeatherMap API provides the following climate change data:
 
 - `location`: Geographical location (name of the reporting location).
 - `longitude` and `latitude`: Coordinates of the reporting location in degrees.
-- `temperature`: Temperature of the Location in Kelvin.
+- `temperature`: Temperature of the location in Kelvin.
 -  `humidity` : Measurement of the moistness of the reporting location in percentage (%).
--  `pressure` : Atmospheric pressure of the reporting Location in hPa.
+-  `pressure` : Atmospheric pressure of the reporting location in hPa.
 -  `wind_speed` : Measurement of the wind speed of the location in mph.
 - `weather`: Description of the weather of the geographical location.
 
@@ -138,7 +138,7 @@ The OpenWeatherMap API provides the following climate change data:
 The CliNex climate contract is dependent on the OpenWeatherMap API and as such retrieves  climate change data from the API on a daily basis.
 
 # The CliNex Blog
-The CliNex blog is used to give the community updates about climate change worldwide and also to give updates about the activities of the CliNex community (members). The blog is maintained by an admin dashboard which the site webmaster uses to add, update or delete blog posts.
+The CliNex blog is used to give the community updates about climate change worldwide and also to give updates about the activities of the CliNex community (members). The blog is maintained by an admin dashboard which the site's webmaster uses to add, update or delete blog posts.
 
 # The Admin Dashboard
 To access the admin dashboard, the site's webmaster has to login with the correct credentials, using the login page. The admin dashboard is used to add posts to the blog, update the blog posts and delete any post from the blog. It is also used by the site's webmaster to sign transactions where climate data is being sent to the climate contract on StarkNet.
