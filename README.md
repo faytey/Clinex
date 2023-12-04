@@ -127,8 +127,12 @@ The CliNex Climate change Data is gotten directly from the live open weather map
 The Open weather Map API provide the following climate change data:
 
 - `location`: Geographical location (Name of the reporting locationn).
-- `longitude` and `latitude`: Coordinates of the reporting location.
-- `temperature`, `humidity`, `pressure`, and `wind_speed`: Environmental parameters.
+- `longitude` and `latitude`: Coordinates of the reporting location in degrees.
+- `temperature`
+-  `humidity`
+-  `pressure`
+-  `wind_speed`
+-  Environmental parameters.
 - `weather`: Description of the weather.
 - `index`: Unique identifier for each climate report.
 
