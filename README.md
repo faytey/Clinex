@@ -134,7 +134,11 @@ The Open weather Map API provide the following climate change data:
 -  `wind_speed` : Measurement of the wind speed of the location in mph.
 - `weather`: Description of the weather.of the geographical location.
 
+### Climate Contract
+CliNex Climate contract is dependent on the open weather map API and as such retrieve  climate change data from the API on a daily basics.
 
+### The CliNex Blog
+The CliNex Blog is use to give the community updates about climate change worldwide and also to give updates about the activities of cliNex community (Members)
 ## Contributors
 
 - [Faith M. Roberts](https://github.com/faytey) - Smart Contract Engineer.
