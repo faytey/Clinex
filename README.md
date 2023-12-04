@@ -122,7 +122,7 @@ The CliNex Climate change Data is gotten directly from the live open weather map
 
 ## Features
 
-### 1. Climate Report Structure
+### Climate Report Structure
 
 The Open weather Map API provide the following climate change data:
 
