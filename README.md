@@ -128,9 +128,9 @@ The OpenWeatherMap API provides the following climate change data:
 
 - `location`: Geographical location (name of the reporting location).
 - `longitude` and `latitude`: Coordinates of the reporting location in degrees.
-- `temperature`: Temperature of the Location in kelvin.
+- `temperature`: Temperature of the Location in Kelvin.
 -  `humidity` : Measurement of the moistness of the reporting location in percentage (%).
--  `pressure` : Atmospheric pressure of the reporting in hPa.
+-  `pressure` : Atmospheric pressure of the reporting Location in hPa.
 -  `wind_speed` : Measurement of the wind speed of the location in mph.
 - `weather`: Description of the weather of the geographical location.
 
