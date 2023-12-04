@@ -128,29 +128,11 @@ The Open weather Map API provide the following climate change data:
 
 - `location`: Geographical location (Name of the reporting locationn).
 - `longitude` and `latitude`: Coordinates of the reporting location in degrees.
-- `temperature`
--  `humidity`
--  `pressure`
--  `wind_speed`
--  Environmental parameters.
-- `weather`: Description of the weather.
-- `index`: Unique identifier for each climate report.
-
-### 2. Interface Functions
-
-The contract provides an interface `IReport` with the following functions:
-
-- `get_climate_reports`: Retrieves an array of all climate reports stored on the contract.
-- `get_climate_report`: Retrieves a specific climate report based on its index.
-- `create_climate_report`: Creates a new climate report with provided environmental data and emits a corresponding event.
-
-### 3. Storage
-
-The contract maintains a storage structure, including a `LegacyMap` for storing individual reports and a `report_count` variable to keep track of the total number of reports.
-
-### 4. Events
-
-The contract defines an event `ClimateEvent` that is emitted when a new climate report is created. This event includes the report's index and a descriptive string.
+- `temperature`: Temperature of the Location in kelvin.
+-  `humidity` : Measurement of the Moistness of the reporting location in percentage (%).
+-  `pressure` : Atmospheric pressure of the reporting in hPA.
+-  `wind_speed` : Measurement of the wind speed of the location in mph.
+- `weather`: Description of the weather.of the geographical location.
 
 
 ## Contributors
