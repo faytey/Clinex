@@ -114,11 +114,11 @@ Members can vote for their favourite proposal by clicking the [Vote proposal](ht
 ### View vote on a proposal 
 A member can view the number of votes on a proposal by clicking on the [view number of votes](https://clinexapp.vercel.app/governance) tab on the website. input the vote id and click on submit to see the number of votes 
 
-# CliNex Climate change Data / Contract
+# CliNex Climate change Data API / Contract
 
 ## Overview
 
-The CliNex Climate change Data is gotten directly from the live open weather map API 
+The CliNex Climate change Data is gotten directly from the live open weather map API, Due to the absence of web3 oracle providing live climate change data, the CliNex Dao and CliNex climate contract is dependent on this open weather map API
 
 ## Features
 
