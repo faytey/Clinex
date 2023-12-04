@@ -114,11 +114,11 @@ Members can vote for their favourite proposal by clicking the [Vote proposal](ht
 ### View vote on a proposal 
 A member can view the number of votes on a proposal by clicking on the [view number of votes](https://clinexapp.vercel.app/governance) tab on the website. input the vote id and click on submit to see the number of votes 
 
-# CliNex Climate changed Datas / Contract
+# CliNex Climate change Data / Contract
 
 ## Overview
 
-The CliNex Climate changed Data / Contract is a decentralized application (DApp) built on the StarkNet blockchain, aiming to facilitate climate data reporting and analysis. This smart contract allows users to create, retrieve, and explore climate reports securely and transparently.
+The CliNex Climate change Data is gotten directly from the live open weather map API 
 
 ## Features
 
