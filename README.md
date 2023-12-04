@@ -114,7 +114,38 @@ Members can vote for their favourite proposal by clicking the [Vote proposal](ht
 ### View vote on a proposal 
 A member can view the number of votes on a proposal by clicking on the [view number of votes](https://clinexapp.vercel.app/governance) tab on the website. input the vote id and click on submit to see the number of votes 
 
-## Contributors
+# CliNex Climate Change Data API / Contract
+
+## Overview
+
+The CliNex climate change data is gotten directly from the live OpenWeatherMap API. Due to the absence of web3 Oracles providing live climate change data, the CliNex Dao and CliNex climate contract is dependent on this OpenWeatherMap API. A Google map API has also been integrated to display the maps of geographical locations we are getting data from.
+
+## Features
+
+### Climate Report Structure
+
+The OpenWeatherMap API provides the following climate change data:
+
+- `location`: Geographical location (name of the reporting location).
+- `longitude` and `latitude`: Coordinates of the reporting location in degrees.
+- `temperature`: Temperature of the location in Kelvin.
+-  `humidity` : Measurement of the moistness of the reporting location in percentage (%).
+-  `pressure` : Atmospheric pressure of the reporting location in hPa.
+-  `wind_speed` : Measurement of the wind speed of the location in mph.
+- `weather`: Description of the weather of the geographical location.
+
+### Climate Contract
+The CliNex climate contract is dependent on the OpenWeatherMap API and as such retrieves  climate change data from the API on a daily basis.
+
+# The CliNex Blog
+The CliNex blog is used to give the community updates about climate change worldwide and also to give updates about the activities of the CliNex community (members). The blog is maintained by an admin dashboard which the site's webmaster uses to add, update or delete blog posts.
+
+# The Admin Dashboard
+To access the admin dashboard, the site's webmaster has to login with the correct credentials, using the login page. The admin dashboard is used to add posts to the blog, update the blog posts and delete any post from the blog. It is also used by the site's webmaster to sign transactions where climate data is being sent to the climate contract on StarkNet.
+
+### CliNex: The Planet's Ultimate Climate Change Solution
+
+### Contributors
 
 - [Faith M. Roberts](https://github.com/faytey) - Smart Contract Engineer.
 - [Patrick Ominisan](https://github.com/mrpatrick030) - Blockchain Engineer.
@@ -122,6 +153,6 @@ A member can view the number of votes on a proposal by clicking on the [view num
 
 ## License
 
-This Clinex DAO smart contract is licensed under the MIT license.
+This Clinex DAO smart contract is Licensed under the MIT license.
 ```
 
