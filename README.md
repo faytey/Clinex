@@ -145,7 +145,7 @@ To access the admin dashboard, the site webmaster has to login with the correct 
 
 ## CliNex: The Planet's Ultimate Climate Change Solution
 
-## Contributors
+### Contributors
 
 - [Faith M. Roberts](https://github.com/faytey) - Smart Contract Engineer.
 - [Patrick Ominisan](https://github.com/mrpatrick030) - Blockchain Engineer.
