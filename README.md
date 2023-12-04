@@ -138,7 +138,7 @@ The Open weather Map API provide the following climate change data:
 CliNex Climate contract is dependent on the open weather map API and as such retrieve  climate change data from the API on a daily basics.
 
 ### The CliNex Blog
-The CliNex Blog is use to give the community updates about climate change worldwide and also to give updates about the activities of cliNex community (Members)
+The CliNex Blog is use to give the community updates about climate change worldwide and also to give updates about the activities of cliNex community (Members). The blog is maintained by an admin dashboard which the site webmaster uses to add, update or delete blog post
 ## Contributors
 
 - [Faith M. Roberts](https://github.com/faytey) - Smart Contract Engineer.
