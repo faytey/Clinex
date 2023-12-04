@@ -217,26 +217,60 @@ To access the list of members, the `member_list` function can be used.
 const members = dao.member_list();
 ```
 
-## Getting Started
 
-1. **Clone Repository:**
-   ```bash
-   git clone https://github.com/faytey/Clinex.git
-   ```
+# CliNex Dao Climate Reporting Contract
 
-2. **Install Dependencies:**
-   ```bash
-   cd clinex-dao
-   # Install dependencies as needed
-   ```
+## Overview
 
-3. **Deploy Contract:**
-   - Follow the StarkNet documentation on deploying contracts to deploy the `ClinexDao` contract.
-   - Configure the contract parameters as necessary.
+The CliNex Dao Climate Reporting Contract is a decentralized application (DApp) built on the StarkNet blockchain, aiming to facilitate climate data reporting and analysis. This smart contract allows users to create, retrieve, and explore climate reports securely and transparently.
 
-4. **Interact with Contract:**
-   - Use a StarkNet-compatible environment to interact with the deployed contract.
-   - Call the provided functions as needed for DAO operations.
+## Features
+
+### 1. Climate Report Structure
+
+The contract defines a `Report` structure with the following fields:
+
+- `location`: Geographical location represented as a felt252.
+- `longitude` and `latitude`: Coordinates of the reporting location.
+- `temperature`, `humidity`, `pressure`, and `wind_speed`: Environmental parameters recorded in u128 format.
+- `weather`: Description of the weather in felt252 format.
+- `index`: Unique identifier for each climate report.
+
+### 2. Interface Functions
+
+The contract provides an interface `IReport` with the following functions:
+
+- `get_climate_reports`: Retrieves an array of all climate reports stored on the contract.
+- `get_climate_report`: Retrieves a specific climate report based on its index.
+- `create_climate_report`: Creates a new climate report with provided environmental data and emits a corresponding event.
+
+### 3. Storage
+
+The contract maintains a storage structure, including a `LegacyMap` for storing individual reports and a `report_count` variable to keep track of the total number of reports.
+
+### 4. Events
+
+The contract defines an event `ClimateEvent` that is emitted when a new climate report is created. This event includes the report's index and a descriptive string.
+
+## Usage
+
+1. **Get All Climate Reports:**
+   - Call the `get_climate_reports` function to retrieve an array of all climate reports.
+
+2. **Get Specific Climate Report:**
+   - Call the `get_climate_report` function with the desired report index to retrieve specific climate report details.
+
+3. **Create New Climate Report:**
+   - Call the `create_climate_report` function with the required environmental data to create a new climate report.
+
+4. **Events:**
+   - Monitor the emitted `ClimateEvent` to stay informed about new climate reports and their respective indices.
+
+## Development
+
+- **Dependencies:**
+  - This contract depends on the StarkNet SDK and StarkWare modules.
+
 
 ## Contributors
 
