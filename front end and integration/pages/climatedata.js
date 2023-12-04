@@ -23,7 +23,7 @@ export default function ClimateData(){
   return (
     <>
       <Head>
-        <title>Climate Data</title>
+        <title>Climate Change Data</title>
         <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
       <div className="p-[5%] pb-[60%] maindivforclimatedata" style={{backgroundImage:"url(images/bg9.jpg)", backgroundAttachment:"fixed", transition:"0.5s ease-in-out"}}>
@@ -31,7 +31,7 @@ export default function ClimateData(){
       
       <div className='text-center lg:text-[250%] md:text-[220%] text-[220%]  mt-[1cm] font-[600]' style={{display:"block"}}>
         <img src="images/climate-change.png" width="60" style={{display:"inline-block"}}/> &nbsp; 
-        <span className='text-[#fff]'>Climate Data</span> 
+        <span className='text-[#fff]'>Climate Change Data</span> 
       </div>
 
       <div data-aos="zoom-in" className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 mt-[1cm] gap-8 text-[#000]' style={{transition:"0.5s ease-in-out"}}>

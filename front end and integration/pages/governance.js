@@ -724,14 +724,14 @@ export default function Governance(){
             {displayComponent === "joindaodisplay" && 
             <div data-aos="zoom-in" style={{transition:"0.5s ease-in-out"}}>
                 <div className='text-center lg:text-[150%] md:text-[150%] text-[120%] font-[600]'>Become a Member</div>
-                <div className='mt-[0.5cm] text-center text-[#083] font-[500]'>You must be a $CLINEX holder to be part of the DAO!</div>
+                <div className='mt-[0.5cm] text-center text-[#083] font-[500]'>You must be a $CTK holder to be part of the DAO!</div>
                 <form>
                     <div className='mt-[7%]' style={{borderBottom:"2px solid #fff"}}>
                     <label className='py-[0.2cm] px-[0.3cm] bg-[#222] rounded-md font-[500]'>Wallet Address</label>
                     <div className='mt-[0.5cm]'><input type="text" className='py-[0.2cm] bg-[rgba(0,0,0,0)] outline-none w-[100%] placeholder-[#ddd]' value={postedWalletAddress} onChange={(e) => setClinexBalance(e.target.value)} /></div>
                     </div>
                     <div className='mt-[7%]' style={{borderBottom:"2px solid #fff"}}>
-                    <label className='py-[0.2cm] px-[0.3cm] bg-[#222] rounded-md font-[500]'>$CLINEX Balance</label>
+                    <label className='py-[0.2cm] px-[0.3cm] bg-[#222] rounded-md font-[500]'>$CTK Balance</label>
                     <div className='mt-[0.5cm]'><input type="text" className='py-[0.2cm] bg-[rgba(0,0,0,0)] outline-none w-[100%] placeholder-[#ddd]' value={clinexBalance} onChange={(e) => setPostedWalletAddress(e.target.value)} /></div>
                     </div>
                     <button onClick={(e) => {e.preventDefault(); writeToJoinDao(postedWalletAddress,clinexBalance)}} className='actionbutton p-[0.2cm] w-[100%] text-center font-[600] lg:text-[120%] md:text-[120%] mt-[7%] bg-[#222] rounded-md'>Join DAO</button>

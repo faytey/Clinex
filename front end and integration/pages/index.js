@@ -27,7 +27,7 @@ export default function Home(){
   return (
     <>
     <Head>
-   <title>CliNex - Offering solutions to the planet's ecosystem</title>
+   <title>CliNex - The Planet's Ultimate Climate Change Solution</title>
    <link rel="shortcut icon" href="/favicon.ico" />
    </Head>
    <div className='maindiv'>
@@ -48,7 +48,7 @@ export default function Home(){
       <div className='grid-cols-1'>
         <div className='lg:text-[250%] md:text-[200%] text-[150%] font-[600] text-[#090]'>Built on StarkNet to Confront Climate Change Problems</div>
         <div className='lg:text-[130%] md:text-[120%] text-[110%] text-[#060] mt-[1cm]'>Providing the most impactful solutions to climate related problems around the world. 
-        CliNex DAO is open to NGOs, businesses, agencies, and organisations. To become a member, you will have to mint CliNex tokens which give you access to the DAO.</div>
+        CliNex DAO is open to NGOs, businesses, agencies, and organisations. To become a member, you will have to mint CliNex tokens ($CTK) which give you access to the DAO.</div>
         <div className='mt-[1cm]'><i className='fa fa-handshake-angle text-[#090] font-[600] text-[120%]'></i> &nbsp; <Link href="/governance"><button className='px-[0.5cm] py-[0.2cm] bg-[#090] rounded-full font-[600] cursor-pointer firstsectionbuttons'>Join CliNex DAO</button></Link></div>
         <div className='mt-[0.5cm]'><i className='fa fa-people-group text-[#090] font-[600] text-[120%]'></i> &nbsp; <Link href="#homeblogupdates"><button className='px-[0.5cm] py-[0.2cm] bg-[#090] rounded-full font-[600] cursor-pointer firstsectionbuttons'>Latest Community Updates</button></Link></div>
         <div className='mt-[0.5cm]'><i className='fa fa-cloud-sun text-[#090] font-[600] text-[120%]'></i> &nbsp; <Link href="#homeclimatediv"><button className='px-[0.5cm] py-[0.2cm] bg-[#090] rounded-full font-[600] cursor-pointer firstsectionbuttons'>View Latest Climate Changes</button></Link></div>

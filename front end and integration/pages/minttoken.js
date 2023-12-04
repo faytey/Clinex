@@ -412,7 +412,7 @@ export default function GetToken() {
     return (
         <>
    <Head>
-   <title>MINT $CLINEX</title>
+   <title>MINT CliNex Token $CTK</title>
    <link rel="shortcut icon" href="/favicon.ico" />
    </Head>
         <div className="p-[5%] pb-[60%] maindivforbuytoken" style={{backgroundImage:"url(images/bg01.jpg)", backgroundAttachment:"fixed", transition:"0.5s ease-in-out"}}>
@@ -424,15 +424,15 @@ export default function GetToken() {
 
           <div className="text-center lg:text-[120%] md:text-[120%] text-[#090] mt-[1cm] overflow-auto font-[500]">{userswalletaddress}</div>
 
-        <div className="text-center lg:text-[120%] md:text-[120%] mt-[1cm] lg:px-[10%] md:px-[10%]">Ensure you have installed the ArgentX or Braavos smart wallet extension on your browser and connect wallet to mint $CLINEX. <br></br>
-        Owning <span className="text-[#083]">$CLINEX </span>tokens gives you access to the governance of the ecosystem.</div>
+        <div className="text-center lg:text-[120%] md:text-[120%] mt-[1cm] lg:px-[10%] md:px-[10%]">Ensure you have installed the ArgentX or Braavos smart wallet extension on your browser and connect wallet to mint $CTK. <br></br>
+        Owning <span className="text-[#083]">$CTK </span>tokens gives you access to the governance of the ecosystem.</div>
 
         <div data-aos="zoom-in" style={{transition:"0.5s ease-in-out"}}>
         <div className="lg:mx-[20%] md:mx-[15%] py-[1cm]">
-            <div className="text-center"><span className="text-[120%] font-[600] pb-[0.2cm] rounded-full px-[0.3cm]" style={{borderBottom:"4px solid #083"}}>Mint $CLINEX</span></div>
+            <div className="text-center"><span className="text-[120%] font-[600] pb-[0.2cm] rounded-full px-[0.3cm]" style={{borderBottom:"4px solid #083"}}>Mint CLINEX Token</span></div>
             <form className="mt-[2cm]">
             <div className="bg-[#111] rounded-xl p-[5%]" style={{boxShadow:"-2px -2px 2px 2px #fff"}}>
-                <div><span className="px-[0.4cm] py-[0.2cm] rounded-md bg-[rgba(0,0,0,0.4)]">CLINEX</span></div>
+                <div><span className="px-[0.4cm] py-[0.2cm] rounded-md bg-[rgba(0,0,0,0.4)]">CTK</span></div>
                 <div className="mt-[3%]">Balance: {clinexBalance}<span id="CLINEXbalance"></span></div>
                 <input className="py-[0.2cm] text-[#fff] w-[100%] mt-[3%] rounded-md outline-none bg-[#111]" type="text" id="clinexAmount" name="clinexAmount" value="1000" onChange={(e) => setClinexAmount(e.target.value)}/>
             </div>
@@ -444,7 +444,7 @@ export default function GetToken() {
         {mintedCLINEXsuccessAlert ? 
         (<div>
         <div data-aos="slide-up" className="fixed ml-[5%] top-1 right-[5%] bg-[rgba(0,0,0,0.9)] text-white px-4 py-3 rounded-md" style={{transition:"0.5s ease-in-out"}}>
-        <span>You have successfully minted 1000 $CLINEX tokens. Check wallet.</span> &nbsp; &nbsp;
+        <span>You have successfully minted 1000 $CTK tokens. Check wallet.</span> &nbsp; &nbsp;
         <button><i className="fa fa-circle-xmark text-[130%] font-[600] text-[#a00]" onClick={closeMintAlert}></i></button>
         </div>
         </div>
