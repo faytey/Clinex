@@ -118,7 +118,7 @@ A member can view the number of votes on a proposal by clicking on the [view num
 
 ## Overview
 
-The CliNex climate change data is gotten directly from the live OpenWeatherMap API. Due to the absence of web3 Oracles providing live climate change data, the CliNex Dao and CliNex climate contract is dependent on this OpenWeatherMap API. A Google map API has also been integrated to display the map of a geographical locations we are getting data from.
+The CliNex climate change data is gotten directly from the live OpenWeatherMap API. Due to the absence of web3 Oracles providing live climate change data, the CliNex Dao and CliNex climate contract is dependent on this OpenWeatherMap API. A Google map API has also been integrated to display the maps of geographical locations we are getting data from.
 
 ## Features
 
