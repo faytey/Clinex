@@ -114,25 +114,25 @@ Members can vote for their favourite proposal by clicking the [Vote proposal](ht
 ### View vote on a proposal 
 A member can view the number of votes on a proposal by clicking on the [view number of votes](https://clinexapp.vercel.app/governance) tab on the website. input the vote id and click on submit to see the number of votes 
 
-# CliNex Climate change Data API / Contract
+# CliNex Climate Change Data API / Contract
 
 ## Overview
 
-The CliNex Climate change Data is gotten directly from the live open weather map API. Due to the absence of web3 oracle providing live climate change data, the CliNex Dao and CliNex climate contract is dependent on this open weather map API. A google map API has also been integrated to display the map of a geographical location we are getting data from.
+The CliNex climate change data is gotten directly from the live OpenWeatherMap API. Due to the absence of web3 Oracles providing live climate change data, the CliNex Dao and CliNex climate contract is dependent on this OpenWeatherMap API. A Google map API has also been integrated to display the map of a geographical locations we are getting data from.
 
 ## Features
 
 ### Climate Report Structure
 
-The Open weather Map API provide the following climate change data:
+The OpenWeatherMap API provides the following climate change data:
 
-- `location`: Geographical location (Name of the reporting locationn).
+- `location`: Geographical location (name of the reporting location).
 - `longitude` and `latitude`: Coordinates of the reporting location in degrees.
 - `temperature`: Temperature of the Location in kelvin.
--  `humidity` : Measurement of the Moistness of the reporting location in percentage (%).
--  `pressure` : Atmospheric pressure of the reporting in hPA.
+-  `humidity` : Measurement of the moistness of the reporting location in percentage (%).
+-  `pressure` : Atmospheric pressure of the reporting in hPa.
 -  `wind_speed` : Measurement of the wind speed of the location in mph.
-- `weather`: Description of the weather.of the geographical location.
+- `weather`: Description of the weather of the geographical location.
 
 ### Climate Contract
 CliNex Climate contract is dependent on the open weather map API and as such retrieve  climate change data from the API on a daily basics.
