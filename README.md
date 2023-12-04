@@ -135,13 +135,13 @@ The OpenWeatherMap API provides the following climate change data:
 - `weather`: Description of the weather of the geographical location.
 
 ### Climate Contract
-CliNex Climate contract is dependent on the open weather map API and as such retrieve  climate change data from the API on a daily basics.
+The CliNex climate contract is dependent on the OpenWeatherMap API and as such retrieves  climate change data from the API on a daily basis.
 
 # The CliNex Blog
-The CliNex Blog is use to give the community updates about climate change worldwide and also to give updates about the activities of cliNex community (Members). The blog is maintained by an admin dashboard which the site webmaster uses to add, update or delete blog post.
+The CliNex blog is used to give the community updates about climate change worldwide and also to give updates about the activities of the CliNex community (members). The blog is maintained by an admin dashboard which the site webmaster uses to add, update or delete blog posts.
 
 # The Admin Dashboard
-To access the admin dashboard, the site webmaster has to login with the correct credentials, using the login page, the admin dashboard is use to add post to the blog, update the blog post and delete any post from the blog. It is also use by the site webmaster to sign transaction where climate data is been sent to the climate contract on StarkNet.
+To access the admin dashboard, the site's webmaster has to login with the correct credentials, using the login page. The admin dashboard is used to add posts to the blog, update the blog posts and delete any post from the blog. It is also used by the site's webmaster to sign transactions where climate data is being sent to the climate contract on StarkNet.
 
 ### CliNex: The Planet's Ultimate Climate Change Solution
 
@@ -153,6 +153,6 @@ To access the admin dashboard, the site webmaster has to login with the correct 
 
 ## License
 
-This Clinex DAO smart contract is licensed under the MIT license.
+This Clinex DAO smart contract is Licensed under the MIT license.
 ```
 
