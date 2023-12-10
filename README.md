@@ -148,8 +148,12 @@ To access the admin dashboard, the site's webmaster has to login with the correc
 ### Contributors
 
 - [Faith M. Roberts](https://github.com/faytey) - Smart Contract Engineer.
+  Telegram: [@Faithia7](https://t.me/Faithia7)
 - [Patrick Ominisan](https://github.com/mrpatrick030) - Blockchain Engineer.
+  Telegram: [@mrpatrick030](https://t.me/mrpatrick030)
 - [Jeremiah D. Oyeniran](https://github.com/jerydam) - Blockchain Developer.
+  Telegram: [Jerydam](https://t.me/Jerydam)
+- ### Team Questgeeks
 
 ## License
 
