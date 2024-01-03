@@ -1,4 +1,4 @@
-## About the StarkNet CliNex Project.        [Our Website](https://clinexapp.vercel.app)
+## About the StarkNet CliNex Project.        [Our Website](https://clinexapp.vercel.app) , [Demo video](https://youtu.be/bmKDH4PaVPg) , [Presentation](https://www.canva.com/design/DAF2ZTq8mJc/qF4SJLVHfLoEHCz5VYbLCw/edit?utm_content=DAF2ZTq8mJc&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 
 Providing the most impactful solutions to climate related problems around the world. CliNex DAO is open to NGOs, businesses, agencies, and organisations. To become a member, you will have to mint CliNex tokens which give you access to the DAO.
 
